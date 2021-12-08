@@ -2,9 +2,9 @@
  * @Author: cyong
  * @Date: 2021-10-17 20:19:58
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-01 14:20:52
+ * @LastEditTime: 2021-12-08 14:46:40
  * @FilePath: \view\src\index.js
- * @Description: 
+ * @Description: 网站入口文件
  */
 
 import React from 'react';

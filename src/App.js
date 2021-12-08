@@ -2,9 +2,9 @@
  * @Author: cyong
  * @Date: 2021-10-17 20:19:58
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-01 14:21:37
+ * @LastEditTime: 2021-12-08 14:44:32
  * @FilePath: \view\src\App.js
- * @Description: 
+ * @Description: 博客的主界面
  */
 import logo from './assets/icons/logo.svg';
 import './styles/App.css'

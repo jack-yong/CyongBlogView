@@ -1,8 +1,13 @@
+/*
+ * @Author: cyong
+ * @Date: 2021-11-29 19:42:21
+ * @LastEditors: cyong
+ * @LastEditTime: 2021-12-08 14:09:56
+ * @FilePath: \view\src\routes\web.js
+ * @Description: 用户端的router路由
+ */
 
 
-
-
-//用户端的router路由
 export default{
     path:'/',
     name:'home',
