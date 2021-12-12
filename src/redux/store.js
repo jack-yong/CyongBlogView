@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-12-07 21:28:09
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-08 14:37:27
+ * @LastEditTime: 2021-12-12 16:53:21
  * @FilePath: \view\src\redux\store.js
  * @Description: store仓库
  */
@@ -32,5 +32,6 @@ const configureStore = (initialState = {}) => {
     return store
   }
 
+export default configureStore()
 
 
