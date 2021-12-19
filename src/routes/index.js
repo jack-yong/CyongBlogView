@@ -2,13 +2,18 @@
  * @Author: cyong
  * @Date: 2021-12-08 14:40:07
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-12 16:23:04
+ * @LastEditTime: 2021-12-19 21:44:35
  * @FilePath: \view\src\routes\index.js
  * @Description: 整合全部的路由
  */
 
 import Home from "../pages/home/Home"
+import Layout from "../pages/layout/web"
 const routers = [
+    {
+        path:'/index',
+        component:Layout,
+    },
     {
         path:'/home',
         component:Home,

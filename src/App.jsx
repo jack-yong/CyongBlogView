@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-10-17 20:19:58
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-12 16:21:51
+ * @LastEditTime: 2021-12-19 21:43:47
  * @FilePath: \view\src\App.jsx
  * @Description: 博客的主界面
  */
@@ -22,8 +22,8 @@ function App() {
         routes.map((v,k)=>{
           return <Route key={k} path={v.path} component={v.component} />
         })
+        
       }
-    
     </Switch>
   </Router>
 
