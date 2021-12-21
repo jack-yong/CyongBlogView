@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-12-19 20:15:54
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-20 21:23:21
+ * @LastEditTime: 2021-12-21 11:19:21
  * @FilePath: \view\src\pages\layout\web\index.jsx
  * @Description: 博客网站的主页面
  */
@@ -21,11 +21,11 @@ class Layouts extends Component {
     render() { 
         return (  
             <Layout className='app-container'>
-            <Header/>
-            <Footer style={{ textAlign: 'center', background: '#fff' }}>
-            cyong copyright
-            </Footer>
-            <BackTop />
+                <Header/>
+                <Footer style={{ textAlign: 'center', background: '#fff' }}>
+                cyong copyright
+                </Footer>
+                <BackTop />
             </Layout>
         );
     }
