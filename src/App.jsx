@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-10-17 20:19:58
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-19 21:43:47
+ * @LastEditTime: 2021-12-29 16:26:38
  * @FilePath: \view\src\App.jsx
  * @Description: 博客的主界面
  */
@@ -12,9 +12,7 @@ import './styles/App.css'
 import { HashRouter as Router,Switch,Route} from 'react-router-dom'
 import routes from './routes';
 
-
-
-function App() {
+const App = props => {
   return (
     <Router>
       <Switch>
@@ -26,8 +24,7 @@ function App() {
       }
     </Switch>
   </Router>
-
-  );
+  )
 }
 
-export default App;
+export default App

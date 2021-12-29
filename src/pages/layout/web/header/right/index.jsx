@@ -7,14 +7,13 @@
  * @Description: 存放header组件右侧的内部组件
  */
 
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import React from 'react'
 
 const HeaderRight = () => {
     return (
-        <div>
-                
+        <div className=''>
+
         </div>
     )
 }
