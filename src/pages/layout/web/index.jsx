@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-12-19 20:15:54
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-30 17:40:18
+ * @LastEditTime: 2022-01-02 19:57:09
  * @FilePath: \view\src\pages\layout\web\index.jsx
  * @Description: 博客网站的主页面
  */
@@ -18,8 +18,7 @@ const Layouts = (props) => {
         <Layout className='app-container'>
             <Header/>
             <Layout>
-                <Sider>Sider</Sider>
-                <Content>Content</Content>
+                <Content style={{ textAlign: 'center'}}>Content</Content>
             </Layout>
             <Footer style={{ textAlign: 'center', background: '#fff' }}>
             cyong copyright
