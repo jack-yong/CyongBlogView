@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-01-04 16:13:42
  * @LastEditors: cyong
- * @LastEditTime: 2022-01-04 17:27:16
+ * @LastEditTime: 2022-03-03 17:20:46
  * @FilePath: \view\src\pages\layout\web\header\right\component\registerModal.jsx
  * @Description: 注册的弹窗组件
  */
@@ -10,16 +10,22 @@
 import React from 'react'
 import { Button, Modal, Form, Input } from 'antd';
 
+const FormItemLayout = {
+    labelCol: {
+        xs: { span: 24 },
+        sm: { span: 6 }
+    }
+}
+
 const registerModal = (props) => {
     const { visible, onCancelModal, onSubmit, type } = props;
-
     return (
 
         <Modal width={460} title={type} visible={visible} onCancel={onCancelModal} footer={null} onOk={onSubmit}>
             {/* <LoginModal> */}
             <Form
                 layout='horizontal'
-
+                {...FormItemLayout}
             >
                 <Form.Item
                     label="用户名"

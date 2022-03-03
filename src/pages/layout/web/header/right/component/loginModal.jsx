@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-01-04 15:14:46
  * @LastEditors: cyong
- * @LastEditTime: 2022-01-04 16:14:10
+ * @LastEditTime: 2022-03-03 17:21:03
  * @FilePath: \view\src\pages\layout\web\header\right\component\loginModal.jsx
  * @Description: 登录的弹窗组件
  */
@@ -18,6 +18,13 @@ import { Button, Modal, Form, Input } from 'antd';
 //         }
 
 // `;
+//控制文本框的布局
+const FormItemLayout = {
+    labelCol: {
+        xs: { span: 24 },
+        sm: { span: 6 }
+    }
+}
 
 const modal = (props) => {
     const { visible, onCancelModal, onSubmit, type } = props;
@@ -26,7 +33,7 @@ const modal = (props) => {
             {/* <LoginModal> */}
             <Form
                 layout='horizontal'
-
+                {...FormItemLayout}
             >
                 <Form.Item
                     label="用户名"

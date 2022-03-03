@@ -1,26 +1,25 @@
 .app-container {
     .app-header {
+      display: flex;
+      justify-content:space-around ; 
+      flex-direction: row;
       height: 64px;
-      padding: 0;
       background: #fff;
       -webkit-box-shadow: 0 2px 8px #f0f1f2;
       box-shadow: 0 2px 8px #f0f1f2;
-      position: relative;
       z-index: 10;
       max-width: 100%;
       .header-left {
         font-size: 25px;
-        text-align: center;
+        margin-right: 20px;
       }
       .header-right{
         display: flex;
         .search-bar {
           padding: 16px 16px;
-
         }
         .header-navbar{
           border-bottom: 1px;
-
         }
         .header-button {
             text-align: center;
