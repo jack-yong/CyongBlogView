@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-01-03 17:43:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-03 18:47:23
+ * @LastEditTime: 2022-03-17 17:12:01
  * @FilePath: \view\src\pages\layout\web\header\right\component\Userinfo.jsx
  * @Description:  header组件中右边的Userinfo子组件
  */
@@ -11,7 +11,7 @@ import React, { useState } from 'react'
 
 
 //引入组件
-import { Button, Dropdown, Menu } from 'antd'
+import { Button, Dropdown, Menu, message } from 'antd'
 import LoginModal from './loginModal';
 import RegisterModal from './registerModal';
 import AppAvatar from '../../../../../../components/Avatar'
@@ -20,14 +20,23 @@ import AppAvatar from '../../../../../../components/Avatar'
 import { useSelector, useDispatch } from 'react-redux';
 
 //引入退出登录的aciton
-import { logout } from '../../../../../../redux/actions/useraction'
+import { logout, loginSuccess, RegisterSuccess } from '../../../../../../redux/actions/useraction'
+
+//进行http请求
+import axios from '../../../../../../utils/axios'
+
+//后端url地址
+import url from '../../../../../../utils/url'
+
+
 
 const Userinfo = (props) => {
-    const [loginvisible, setloginVisible] = useState(false);
-    const [registervisible, setregisterVisible] = useState(false);
+
     const dispatch = useDispatch();
     const userInfo = useSelector(state => state.user);
-    const { username, avatarurl } = userInfo
+    const [loginvisible, setloginVisible] = useState(false);
+    const [registervisible, setregisterVisible] = useState(false);
+    const { userNickname, userAvatarimgurl } = userInfo
 
     const MenuOverLay = (
         <Menu>
@@ -39,23 +48,46 @@ const Userinfo = (props) => {
         </Menu>
     )
 
-    //登录的相应函数
-    const loginonSubmit = () => {
+    /**
+     * @author: cyong
+     * @description: 登录的相应函数
+     * @param {*}
+     * @return {*}
+     */
+    const loginonSubmit = (param) => {
+        axios.post(url.userlogin, param).then(res => {
+            const { status, data } = res;
+            // console.log(data);
+            if (status === 0) {
+                dispatch(loginSuccess(data))
+                // console.log(userInfo);
+                message.success(`登录成功, 欢迎您 ${data.userNickname}`)
+                setloginVisible(false)
+            }
+            else {
+                message.error('错误码' + status + ':' + res.message)
+            }
 
+            return res
+        })
     }
 
-    const registeronSubmit = () => {
+    /**
+     * @author: cyong
+     * @description: 注册对应的函数
+     * @param {*}
+     * @return {*}
+     */
+    const registeronSubmit = (param) => {
 
     }
-
 
     return (
         <div className='header-button'>
-
-            {username ? (
+            {userNickname !== '' ? (
                 <Dropdown placement='bottomCenter' overlay={MenuOverLay} trigger={['click', 'hover']}>
                     <div style={{ height: 55 }}>
-                        <AppAvatar userInfo={userInfo} avatarurl={avatarurl} />
+                        <AppAvatar username={userNickname} avatarurl={userAvatarimgurl} />
                     </div>
                 </Dropdown>
             ) : (
@@ -74,7 +106,9 @@ const Userinfo = (props) => {
                         注册
                     </Button>
                     <LoginModal type={'登录'} visible={loginvisible} onCancelModal={(e) => setloginVisible(false)} onSubmit={loginonSubmit} />
-                    <RegisterModal type={'注册'} visible={registervisible} onCancelModal={(e) => setregisterVisible(false)} onSubmit={registeronSubmit} />
+                    <RegisterModal type={'注册'} visible={registervisible} onCancelModal={(e) => setregisterVisible(false)}
+                        onSubmit={registeronSubmit}
+                    />
                 </>
             )
             }

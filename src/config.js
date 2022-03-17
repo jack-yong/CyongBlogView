@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-11-29 14:31:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-03 14:57:38
+ * @LastEditTime: 2022-03-10 13:45:24
  * @FilePath: \view\src\config.js
  * @Description: 存放项目中的一些配置信息
  */

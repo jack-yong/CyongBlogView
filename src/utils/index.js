@@ -2,11 +2,11 @@
  * @Author: cyong
  * @Date: 2022-02-27 21:46:08
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-01 10:45:06
+ * @LastEditTime: 2022-03-09 16:45:40
  * @FilePath: \view\src\utils\index.js
  * @Description: 常用的一些工具函数
  */
-import { clear, get } from './storage';
+import { get } from './storage';
 
 /**
  * @author: cyong
