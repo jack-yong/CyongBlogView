@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-01-03 17:43:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-17 17:12:01
+ * @LastEditTime: 2022-03-19 20:59:28
  * @FilePath: \view\src\pages\layout\web\header\right\component\Userinfo.jsx
  * @Description:  header组件中右边的Userinfo子组件
  */
@@ -13,7 +13,7 @@ import React, { useState } from 'react'
 //引入组件
 import { Button, Dropdown, Menu, message } from 'antd'
 import LoginModal from './loginModal';
-import RegisterModal from './registerModal';
+import RegisterModal from './RegisterModal';
 import AppAvatar from '../../../../../../components/Avatar'
 
 //redux
@@ -58,7 +58,7 @@ const Userinfo = (props) => {
         axios.post(url.userlogin, param).then(res => {
             const { status, data } = res;
             // console.log(data);
-            if (status === 0) {
+            if (status === 0 || status === '0') {
                 dispatch(loginSuccess(data))
                 // console.log(userInfo);
                 message.success(`登录成功, 欢迎您 ${data.userNickname}`)
@@ -79,6 +79,18 @@ const Userinfo = (props) => {
      * @return {*}
      */
     const registeronSubmit = (param) => {
+        // console.log(param);
+        axios.post(url.userregister, param).then(res => {
+            const { status, data } = res;
+            if (status === 0 || status === '0') {
+                dispatch((RegisterSuccess(data)))
+                message.success('注册成功!!!')
+                setregisterVisible(false)
+            }
+            else {
+                message.error('错误码' + status + ':' + res.message)
+            }
+        })
 
     }
 

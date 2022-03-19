@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-02-25 20:06:56
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-17 17:05:26
+ * @LastEditTime: 2022-03-19 16:30:12
  * @FilePath: \view\src\redux\reducers\userReducer.js
  * @Description: 处理user相关的reducers
  */
@@ -44,7 +44,7 @@ const userReducer = (state = defaultState, action) => {
         case REGISTER_SUCCESS:
             return blankState
         default:
-            return state
+            return blankState
     }
 }
 
