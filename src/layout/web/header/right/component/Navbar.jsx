@@ -2,8 +2,8 @@
  * @Author: cyong
  * @Date: 2022-01-03 17:44:16
  * @LastEditors: cyong
- * @LastEditTime: 2022-01-04 16:03:53
- * @FilePath: \view\src\pages\layout\web\header\right\component\Navbar.jsx
+ * @LastEditTime: 2022-03-20 14:52:50
+ * @FilePath: \view\src\layout\web\header\right\component\Navbar.jsx
  * @Description: header组件中右边的navbar子组件
  */
 
@@ -17,7 +17,7 @@ const Navbar = (props) => {
     return (
         <Menu mode="horizontal" className='header-navbar'>
             <Menu.Item key="home" icon={<HomeOutlined />}>
-                <Link to="/index">
+                <Link to="/">
                     首页
                 </Link>
             </Menu.Item>

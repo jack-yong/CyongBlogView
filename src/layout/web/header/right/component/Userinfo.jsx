@@ -2,8 +2,8 @@
  * @Author: cyong
  * @Date: 2022-01-03 17:43:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-19 20:59:28
- * @FilePath: \view\src\pages\layout\web\header\right\component\Userinfo.jsx
+ * @LastEditTime: 2022-03-20 13:17:42
+ * @FilePath: \view\src\layout\web\header\right\component\Userinfo.jsx
  * @Description:  header组件中右边的Userinfo子组件
  */
 
@@ -14,19 +14,19 @@ import React, { useState } from 'react'
 import { Button, Dropdown, Menu, message } from 'antd'
 import LoginModal from './loginModal';
 import RegisterModal from './RegisterModal';
-import AppAvatar from '../../../../../../components/Avatar'
+import AppAvatar from '../../../../../components/Avatar'
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 
 //引入退出登录的aciton
-import { logout, loginSuccess, RegisterSuccess } from '../../../../../../redux/actions/useraction'
+import { logout, loginSuccess, RegisterSuccess } from '../../../../../redux/actions/useraction'
 
 //进行http请求
-import axios from '../../../../../../utils/axios'
+import axios from '../../../../../utils/axios'
 
 //后端url地址
-import url from '../../../../../../utils/url'
+import url from '../../../../../utils/url'
 
 
 

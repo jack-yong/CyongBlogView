@@ -1,12 +1,22 @@
-.app-container {
+.app-container {  
+  // justify-content: space-around;
+  display: flex;
+  justify-content: center;
+  .appheader-root{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 64px;
+    background: #fff;
+    
     .app-header {
-      display: flex;
+      width: 1300px;
+      
+      background: #fff;
       justify-content:space-around ; 
       flex-direction: row;
-      height: 64px;
-      background: #fff;
-      -webkit-box-shadow: 0 2px 8px #f0f1f2;
-      box-shadow: 0 2px 8px #f0f1f2;
+      // -webkit-box-shadow: 0 2px 8px #f0f1f2;
+      // box-shadow: 0 2px 8px #f0f1f2;
       z-index: 10;
       max-width: 100%;
       .header-left {
@@ -27,6 +37,12 @@
         }
 
       }
+    }
+  }
+    .app-content {
+      width: 1300px;
+     
+
     }
 
   }
