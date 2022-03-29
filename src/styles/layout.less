@@ -1,27 +1,38 @@
 .app-container {  
-  // justify-content: space-around;
-  display: flex;
+ 
+  // width: 100vw;
+  align-items: center;
+
   justify-content: center;
+  .pm-ribbon{
+    position: absolute ; 
+    top: 64px ;
+  }
   .appheader-root{
     display: flex;
     justify-content: center;
     width: 100%;
     height: 64px;
     background: #fff;
-    
+    -webkit-box-shadow: 0 2px 8px #f0f1f2;
+    box-shadow: 0 2px 8px #f0f1f2;
+
     .app-header {
-      width: 1300px;
-      
+      width: 65vw;
+      padding: 0 1vw;
       background: #fff;
-      justify-content:space-around ; 
+      justify-content:space-between  ; 
       flex-direction: row;
-      // -webkit-box-shadow: 0 2px 8px #f0f1f2;
-      // box-shadow: 0 2px 8px #f0f1f2;
-      z-index: 10;
-      max-width: 100%;
+
+      // z-index: 10;
+      // max-width: 100%;
+     
+      .head-row {
+        justify-content: space-between;
+      }
       .header-left {
         font-size: 25px;
-        margin-right: 20px;
+        // margin-right: 20px;
       }
       .header-right{
         display: flex;
@@ -38,14 +49,32 @@
 
       }
     }
+
   }
-    .app-content {
+  .app-content {
+    width: 65vw;
+    height: 65vh;
+    padding: 0 1vw;
+    margin-top: 1vh;
+    background: #fff;
+    z-index: 1;
+    
+
+  }
+
+}
+
+@media (min-width: 1300px) and (max-width: 4096px){
+  .app-container .appheader-root .app-header  {
       width: 1300px;
-     
-
-    }
-
   }
+
+
+  .app-container .app-content {
+    width: 1300px;
+  }
+}
   
+
 
   
