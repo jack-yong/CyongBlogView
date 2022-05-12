@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-12-19 20:15:54
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-29 21:58:08
+ * @LastEditTime: 2022-03-30 14:31:24
  * @FilePath: \view\src\layout\web\index.jsx
  * @Description: 博客网站的主页面
  */
@@ -26,7 +26,7 @@ const Layouts = (props) => {
             <Layout className='app-container'>
 
                 <Header className='app-header' />
-                <PmRibbon clickChangeDom={document} ribbonWidth="120" globalAlpha="0.2" />
+                <PmRibbon clickChangeDom={document} ribbonWidth="60" drawSite={[700, 500]} canClickChange="false" />
                 <Content {...props} className='app-content' />
                 <Footer style={{ textAlign: 'center', background: '#fff' }}>
                     cyong copyright

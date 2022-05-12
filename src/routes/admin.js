@@ -2,31 +2,45 @@
  * @Author: cyong
  * @Date: 2021-11-29 19:42:09
  * @LastEditors: cyong
- * @LastEditTime: 2021-12-12 16:21:19
+ * @LastEditTime: 2022-05-12 15:25:33
  * @FilePath: \view\src\routes\admin.js
- * @Description: 管理端的router路由,暂时弃用，后续还会继续添加
+ * @Description: 管理端的router路由
  */
 
+import Adminlayout from '../layout/admin'
+import Home from '../pages/admin/home'
+import Usermanger from '../pages/admin/user'
+import ArticleEdit from '../pages/admin/article/edit'
+import Categorys from '@/pages/admin/categorys'
+const adminrouter = {
+    path: '/admin',
+    component: Adminlayout,
+    childRoutes: [
+        {
+            path: '',
+            component: Home,
+        },
+        {
+            path: '/article/edit/:id',
+            component: '',
+        },
+        {
+            path: '/article/add',
+            component: ArticleEdit,
+        },
+        {
+            path: '/article/manager',
+            component: ''
+        },
+        {
+            path: '/user/manger',
+            component: Usermanger,
+        },
+        {
+            path: '/categorys',
+            component: Categorys,
+        },
+    ]
+}
 
-export default[
-    {
-        path:'/admin',
-        component:'',
-    },
-    {
-        path:'/admin/article/edit/:id',
-        component:''
-    },
-    {
-        path:'/admin/article/add',
-        component:''
-    },
-    {
-        path:'/admin/article/manager',
-        component:''
-    },
-    {
-        path:'/adminuser/manger',
-        component:''
-    }
-]
+export default adminrouter;

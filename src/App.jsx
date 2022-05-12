@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-10-17 20:19:58
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-20 14:14:09
+ * @LastEditTime: 2022-03-31 14:41:48
  * @FilePath: \view\src\App.jsx
  * @Description: 博客的主界面
  */
@@ -14,35 +14,81 @@ import routes from './routes';
 import 'antd/dist/antd.css';
 const App = props => {
 
-  //实现嵌套路由的函数
-  const renderRouters = (routes) => {
-    const childrenList = []
-    routes.forEach((items) => {
-      if (!items.children) {
-        childrenList.push(
-          <Route key={items.path} path={items.path} component={items.component} />
-        )
-      } else {
-        let children = renderRouters(items.children)
-        return childrenList.push(
+  //路由给我整吐了
+  // //实现嵌套路由的函数
+  // const renderRouters = (routes, rootpath) => {
+  //   const childrenList = []
+  //   routes.forEach((items) => {
+  //     let newpath = items.path ? `${rootpath}/${items.path}` : rootpath
+
+  //     newpath = newpath.replace(/\/+/g, '/')
+  //     if (!items.children) {
+
+  //       childrenList.push(
+  //         <Route key={newpath} path={newpath} component={items.component} exact />
+
+  //       )
+  //     } else {
+  //       let children = renderRouters(items.children, newpath)
+  //       // let exact = items.path === '/'
+  //       return childrenList.push(
+
+  //         <Route
+  //           key={newpath}
+  //           render={props => <items.component {...props}>{children}</items.component>}
+  //           path={newpath}
+
+  //         />
+  //       )
+  //     }
+
+  //   })
+  //   return childrenList
+  // }
+
+  // 解构 route
+  function renderRoutes(routes, contextPath) {
+    const children = []
+
+    const renderRoute = (item, routeContextPath) => {
+      let newContextPath = item.path ? `${routeContextPath}/${item.path}` : routeContextPath
+      newContextPath = newContextPath.replace(/\/+/g, '/')
+      // if (newContextPath.includes('admin') && role !== 1) {
+      //   item = {
+      //     ...item,
+      //     component: () => <Redirect to='/' />,
+      //     children: []
+      //   }
+      // }
+      if (!item.component) return
+
+      if (item.childRoutes) {
+        const childRoutes = renderRoutes(item.childRoutes, newContextPath)
+        children.push(
           <Route
-            key={items.path}
-            render={props => <items.component {...props}>{children}</items.component>}
-            path={items.path}
+            key={newContextPath}
+            render={props => <item.component {...props}>{childRoutes}</item.component>}
+            path={newContextPath}
           />
         )
+        item.childRoutes.forEach(r => renderRoute(r, newContextPath))
+      } else {
+        children.push(<Route key={newContextPath} component={item.component} path={newContextPath} exact />)
       }
+    }
 
-    })
-    return childrenList
+    routes.forEach(item => renderRoute(item, contextPath))
+
+    return <Switch>{children}</Switch>
   }
 
-  const children = renderRouters(routes);
+  const children = renderRoutes(routes, '/');
+  // console.log(children);
   return (
     <Router>
-      <Switch>
-        {children}
-      </Switch>
+
+      {children}
+
     </Router>
   )
 }
