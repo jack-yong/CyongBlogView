@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-11-29 19:42:09
  * @LastEditors: cyong
- * @LastEditTime: 2022-05-12 15:25:33
+ * @LastEditTime: 2022-07-01 21:05:29
  * @FilePath: \view\src\routes\admin.js
  * @Description: 管理端的router路由
  */
@@ -12,6 +12,7 @@ import Home from '../pages/admin/home'
 import Usermanger from '../pages/admin/user'
 import ArticleEdit from '../pages/admin/article/edit'
 import Categorys from '@/pages/admin/categorys'
+import TagManger from '@/pages/admin/tags'
 const adminrouter = {
     path: '/admin',
     component: Adminlayout,
@@ -39,6 +40,10 @@ const adminrouter = {
         {
             path: '/categorys',
             component: Categorys,
+        },
+        {
+            path: '/tags',
+            component: TagManger,
         },
     ]
 }

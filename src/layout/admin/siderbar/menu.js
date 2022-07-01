@@ -2,11 +2,11 @@
  * @Author: cyong
  * @Date: 2022-03-30 19:10:29
  * @LastEditors: cyong
- * @LastEditTime: 2022-04-06 20:21:52
+ * @LastEditTime: 2022-07-01 21:07:21
  * @FilePath: \view\src\layout\admin\siderbar\menu.js
  * @Description: 
  */
-import { HomeOutlined, FileProtectOutlined, FileSyncOutlined, FileAddOutlined, UserOutlined, FolderOutlined, TagsOutlined, PushpinOutlined, LinkOutlined, MessageOutlined } from '@ant-design/icons';
+import { HomeOutlined, FileProtectOutlined, FileSyncOutlined, FileAddOutlined, UserOutlined, FolderOutlined, TagsOutlined, PushpinOutlined, LinkOutlined, MessageOutlined, SettingOutlined } from '@ant-design/icons';
 const menu = [
     {
         path: '/admin',
@@ -41,7 +41,7 @@ const menu = [
         name: '类别管理'
     },
     {
-        path: '/admin/tages',
+        path: '/admin/tags',
         icon: <TagsOutlined />,
         name: '标签管理'
     }
@@ -62,6 +62,11 @@ const menu = [
         path: '/admin/messages',
         icon: <MessageOutlined />,
         name: '留言板管理'
+    },
+    {
+        path: '/admin/settings',
+        icon: <SettingOutlined />,
+        name: '系统设置管理'
     }
 ]
 

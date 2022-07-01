@@ -2,14 +2,14 @@
  * @Author: cyong
  * @Date: 2021-11-29 14:31:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-10 13:45:24
+ * @LastEditTime: 2022-06-21 20:23:44
  * @FilePath: \view\src\config.js
  * @Description: 存放项目中的一些配置信息
  */
 import { GithubOutlined } from '@ant-design/icons';
 
 //本地后端接口url
-export const Local_Base_Url = 'http://localhost:8080'
+export const Local_Base_Url = 'http://localhost:8888'
 
 
 export const HEADER_BLOG_NAME = 'cyong的博客' // header title 显示的名字
@@ -29,3 +29,8 @@ export const SIDEBAR = {
 
 // === discuss avatar
 export const DISCUSS_AVATAR = SIDEBAR.avatar // 评论框博主头像
+
+//设计
+export const pageconfig = {
+    pageSize: 6
+}

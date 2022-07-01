@@ -2,8 +2,8 @@
  * @Author: cyong
  * @Date: 2022-01-04 16:13:42
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-19 21:23:13
- * @FilePath: \view\src\pages\layout\web\header\right\component\registerModal.jsx
+ * @LastEditTime: 2022-06-17 18:18:51
+ * @FilePath: \view\src\layout\web\header\right\component\RegisterModal.jsx
  * @Description: 注册的弹窗组件
  */
 
@@ -57,7 +57,8 @@ const RegisterModal = (props) => {
                     name="username"
                     rules={[
                         { required: true, message: 'Please input your username!' }
-                        , {
+                        ,
+                        {
                             // 下面是组件的验证函数
                             validator: (_, value) =>
                                 value.replace(/\s+/g, "") ? Promise.resolve() : Promise.reject(new Error('username should not only have blank')),

@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-30 19:10:06
  * @LastEditors: cyong
- * @LastEditTime: 2022-05-11 20:06:15
+ * @LastEditTime: 2022-07-01 15:38:42
  * @FilePath: \view\src\layout\admin\header\index.jsx
  * @Description: 管理端头部组件
  */
@@ -12,7 +12,7 @@ import { Dropdown, Menu } from 'antd'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { logout } from '@/redux/actions/useraction'
-
+import SvgIcon from '@/components/SvgIcon'
 
 import Icon from '@ant-design/icons';
 
@@ -42,8 +42,8 @@ const Adminheader = (props) => {
     return (
         <>
             <div>
-                {/* <img src={logo} alt='pvmed' /> */}
-                <span className='header-title'>CyBlog Manager</span>
+                <SvgIcon type='icon-blog' style={{ width: 30, height: 25, transform: 'translateY(9px)' }} />
+                <span className='header-title'>CyBlog后台管理</span>
                 <Dropdown overlay={menu} className='header-dropdown'>
                     <div className='ant-dropdown-link'>
                         {"admin"} <Icon type='down' />

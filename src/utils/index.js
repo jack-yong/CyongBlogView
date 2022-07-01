@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-02-27 21:46:08
  * @LastEditors: cyong
- * @LastEditTime: 2022-04-05 14:47:22
+ * @LastEditTime: 2022-06-19 17:36:35
  * @FilePath: \view\src\utils\index.js
  * @Description: 常用的一些工具函数
  */
@@ -43,4 +43,12 @@ export const decodeQuery = url => {
         if (d[1] && d[0]) params[d[0]] = d[1]
     })
     return params
+}
+
+export const isTel = (phone) => {
+    var reg = /^1[34578]\d{9}$/;
+    if (!reg.test(phone)) {
+        return false
+    }
+    return true
 }

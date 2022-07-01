@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-01-03 17:43:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-20 13:17:42
+ * @LastEditTime: 2022-06-19 16:17:41
  * @FilePath: \view\src\layout\web\header\right\component\Userinfo.jsx
  * @Description:  header组件中右边的Userinfo子组件
  */
@@ -67,7 +67,6 @@ const Userinfo = (props) => {
             else {
                 message.error('错误码' + status + ':' + res.message)
             }
-
             return res
         })
     }

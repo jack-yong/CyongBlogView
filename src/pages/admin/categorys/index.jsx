@@ -1,54 +1,51 @@
-import React, { useState } from 'react'
-import { Input, Button, message } from 'antd'
-import RegularTable from '@/components/RegularTable'
-import axios from '@/utils/axios'
-import styles from './index.module.less'
-import AddModal from './addModal'
-import url from '@/utils/url'
-
-import mycolumns from './catecolumns'
-
-const { Search } = Input;
+import React, { useState } from 'react';
+import { message } from 'antd';
+import RegularTable from '@/components/RegularTable';
+import axios from '@/utils/axios';
+import url from '@/utils/url';
+import mycolumns from './catecolumns';
+import SearchBar from '@/components/SearchBar';
+import useAntdTable from '@/hooks/useAntdTable';
+import modalconfig from './modalconfig';
 
 const Categorys = (props) => {
 
-    const [data, setData] = useState([])
-    const [cateName, setCateName] = useState('')
-    const [isVisible, setisVisible] = useState(false)
+    const [isVisible, setisVisible] = useState(false);
+    const [queryParams, setQueryParams] = useState({});
 
+    const { tableProps, updateList, onSearch } = useAntdTable({
+        requestUrl: url.categorysearch,
+        queryParams,
+    })
 
-    const cateSearch = () => {
-        let ncate = cateName.replace(/\s+/g, "");
-        if (ncate === '') {
-            message.error('类型名不能为空！')
-        }
-        else {
-            axios.post(url.categorysearch, { 'cateName': cateName }).then(res => {
-                const { status, data } = res;
-                if (status === 0 || status === '0') {
-                    setData(data)
-                }
-                else {
-                    message.error('错误码' + status + ':' + res.message)
-                }
-            })
-        }
+    const cateSearch = (searchname) => {
+        setQueryParams({ cateName: searchname });
+        onSearch({ ...queryParams, cateName: searchname });
     }
 
-    const cateAdd = () => {
+    const cateAdd = (params) => {
+        updateList(() => {
+            axios.post(url.categoryAdd, params).then(res => {
+                const { status } = res;
+                if (status === 0 || status === '0') {
+                    setisVisible(false);
+                    message.success('添加成功!');
+                }
+                else {
+                    message.error('错误码' + status + ':' + res.message);
+                }
+                setisVisible(false);
+            }).catch(error => {
+                console.log('cateAdd error', error);
+            })
+        })
 
     }
 
     return (
         <>
-            <div className={styles.main}>
-                <div className={styles.head}>
-                    <Search className={styles.input} placeholder="类别名称" onSearch={cateSearch} enterButton onChange={e => setCateName(e.target.value)} />
-                    <Button type="primary" onClick={() => setisVisible(true)} >新增</Button>
-                </div>
-                <RegularTable columns={mycolumns} data={data} />
-                <AddModal isVisible={isVisible} addsubmit={cateAdd} Cancel={() => setisVisible(false)} />
-            </div>
+            <SearchBar title={"增加新类别"} searchService={cateSearch} modalConfData={modalconfig} addService={cateAdd} visible={isVisible} setVisible={setisVisible} />
+            <RegularTable tableProps={tableProps} columns={mycolumns} isopt={true} align={true} name={'cateTable'} />
         </>
     )
 

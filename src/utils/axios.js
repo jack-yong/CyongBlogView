@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-02-27 19:05:52
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-17 14:45:25
+ * @LastEditTime: 2022-05-30 16:45:59
  * @FilePath: \view\src\utils\axios.js
  * @Description: 对http请求进行封装
  */
@@ -10,8 +10,8 @@
 import { Local_Base_Url } from '../config';
 import axios from 'axios';
 import Qs from 'qs'
-
 import { message } from 'antd'
+
 // import { getToken } from './index'
 
 //1.创建axios实例，默认配置也可以在具体请求内复写修改。

@@ -1,31 +1,33 @@
 import { Button } from "antd";
 import styles from './index.module.less'
-const columns = [
+
+const usercolumns = [
     {
-        title: '类别id',
+        title: '标签id',
         width: 100,
         dataIndex: 'id',
         key: 'id',
     },
     {
-        title: '类别名称',
+        title: '标签名称',
         width: 100,
-        dataIndex: 'catename',
-        key: 'catename',
+        dataIndex: 'tagname',
+        key: 'tagname',
+
     },
     {
-        title: '类别图片',
+        title: '创建日期',
         width: 100,
-        dataIndex: 'cateimgurl',
-        key: 'cateimgurl',
+        dataIndex: 'createTime',
+        key: 'createTime',
     },
     {
-        title: '状态',
+        title: '标签状态',
         width: 100,
-        dataIndex: 'catestatus',
-        key: 'catestatus',
+        dataIndex: 'isdeleted',
+        key: 'isdeleted',
         render: (text) => {
-            if (text === '0' || text === 0) {
+            if (text === 0 || text === '0') {
                 return '可用';
             }
             else {
@@ -33,20 +35,14 @@ const columns = [
             }
         }
     },
-    {
-        title: '创建时间',
-        width: 100,
-        dataIndex: 'createtime',
-        key: 'createtime',
-    },
 
     {
         title: '操作',
+        width: 100,
         key: 'operation',
         fixed: 'right',
-        width: 100,
         render: () => <><Button type="primary" size="small" className={styles.button}>修改</Button><Button type="primary" size="small" danger className={styles.button}>删除</Button> </>,
     },
-];
+]
 
-export default columns
+export default usercolumns;
