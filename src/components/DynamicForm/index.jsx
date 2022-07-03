@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
-import { Form, Input, Select, Button, message } from 'antd'
+import { Form, Input, Select, Button, message, Tag } from 'antd'
 
 const DynamicForm = (props) => {
-    const { configData, initialData, formStyle, formItemStyle, buttonName, addOrModifyService } = props;
+    const { configData, initialData, formStyle, formItemStyle, buttonName, addOrModifyService, inline } = props;
     const submitRef = useRef(false);
     const [form] = Form.useForm();
 
@@ -43,10 +43,32 @@ const DynamicForm = (props) => {
 
     };
 
+    //图标渲染的函数
+    const tagRender = (item) => {
+        const { label, value, closable, onClose } = item;
+        const onPreventMouseDown = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+        };
+        return (
+            <Tag
+                color={value}
+                onMouseDown={onPreventMouseDown}
+                closable={closable}
+                onClose={onClose}
+                style={{
+                    marginRight: 3,
+                }}
+            >
+                {label}
+            </Tag>
+        );
+    }
+
     const createFormItem = () => {
         const formItemList = [];
         configData.forEach((item) => {
-            const { name, type, label, placeholder, list, rules, disabled = false } = item;
+            const { name, type, label, placeholder, list, rules, disabled = false, defaultValue } = item;
             switch (type) {
                 case 'input':
                     const inputItem = <Form.Item  {...formItemStyle} key={name} name={name} label={label} rules={rules}>
@@ -58,7 +80,10 @@ const DynamicForm = (props) => {
                     const selectItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
                         <Select
                             disabled={disabled}
-                            placeholder={placeholder}>
+                            placeholder={placeholder}
+                            defaultValue={defaultValue}
+                        >
+
                             {
                                 list?.map((item) => <Select.Option key={item.key} value={item.value}>{item.title}</Select.Option>)
                             }
@@ -66,6 +91,28 @@ const DynamicForm = (props) => {
                     </Form.Item>
                     formItemList.push(selectItem);
                     break;
+                case 'multipleSelect':
+                    const multipleSelectItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
+                        <Select
+                            mode="multiple"
+                            showArrow
+                            tagRender={tagRender}
+                            defaultValue={defaultValue}
+                            style={{
+                                width: '100%',
+                            }}
+                            options={list}
+                        >
+
+                        </Select>
+
+                    </Form.Item>
+                    formItemList.push(multipleSelectItem);
+                    break;
+                case 'photoUpload':
+                    const photoUploadItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
+
+                    </Form.Item>
                 default:
 
             }
@@ -82,6 +129,7 @@ const DynamicForm = (props) => {
     return (
         <>
             <Form
+                layout={inline ? 'inline' : 'horizontal'}
                 {...formStyle}
                 form={form}
                 initialValues={initialData}

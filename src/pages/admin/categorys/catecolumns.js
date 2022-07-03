@@ -8,16 +8,16 @@ const columns = [
         key: 'id',
     },
     {
-        title: '类别名称',
-        width: 100,
-        dataIndex: 'catename',
-        key: 'catename',
-    },
-    {
         title: '类别图片',
         width: 100,
         dataIndex: 'cateimgurl',
         key: 'cateimgurl',
+    },
+    {
+        title: '类别名称',
+        width: 100,
+        dataIndex: 'catename',
+        key: 'catename',
     },
     {
         title: '状态',

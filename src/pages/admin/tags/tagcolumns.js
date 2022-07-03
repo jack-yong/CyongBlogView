@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Tag } from "antd";
 import styles from './index.module.less'
 
 const usercolumns = [
@@ -13,13 +13,23 @@ const usercolumns = [
         width: 100,
         dataIndex: 'tagname',
         key: 'tagname',
-
     },
     {
         title: '创建日期',
         width: 100,
         dataIndex: 'createTime',
         key: 'createTime',
+    },
+    {
+        title: '标签颜色',
+        width: 100,
+        dataIndex: 'tagColor',
+        key: 'tagColor',
+        render: (text, record) => {
+            return (
+                <Tag color={text} >{record.tagname}</Tag>
+            )
+        }
     },
     {
         title: '标签状态',

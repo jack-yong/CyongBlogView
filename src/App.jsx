@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-10-17 20:19:58
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-31 14:41:48
+ * @LastEditTime: 2022-07-03 20:42:32
  * @FilePath: \view\src\App.jsx
  * @Description: 博客的主界面
  */
@@ -12,6 +12,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import routes from './routes';
 //引入antd的css文件
 import 'antd/dist/antd.css';
+import PublicComponent from './components/Public';
 const App = props => {
 
   //路由给我整吐了
@@ -88,7 +89,7 @@ const App = props => {
     <Router>
 
       {children}
-
+      <PublicComponent />
     </Router>
   )
 }
