@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-02-27 21:46:08
  * @LastEditors: cyong
- * @LastEditTime: 2022-06-19 17:36:35
+ * @LastEditTime: 2022-07-09 19:04:13
  * @FilePath: \view\src\utils\index.js
  * @Description: 常用的一些工具函数
  */
@@ -51,4 +51,30 @@ export const isTel = (phone) => {
         return false
     }
     return true
+}
+
+
+export const categoryFilter = (list) => {
+    let filterList = [];
+    list.forEach(item => {
+        let filterobj = {};
+        filterobj["key"] = item.id;
+        filterobj["value"] = item.id;
+        filterobj["title"] = item.catename;
+        filterList.push(filterobj);
+    })
+    return filterList;
+}
+
+
+export const tagFilter = (list) => {
+    let filterList = [];
+    list.forEach(item => {
+        let filterobj = {};
+        filterobj["key"] = item.id;
+        filterobj["label"] = item.tagname;
+        filterobj["value"] = item.tagColor;
+        filterList.push(filterobj);
+    })
+    return filterList;
 }

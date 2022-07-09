@@ -44,8 +44,9 @@ const DynamicForm = (props) => {
     };
 
     //图标渲染的函数
-    const tagRender = (item) => {
-        const { label, value, closable, onClose } = item;
+    const tagRender = (props) => {
+        const { value, label, closable, onClose, key } = props;
+        // console.log(props, "propspropsprops");
         const onPreventMouseDown = (event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -53,6 +54,7 @@ const DynamicForm = (props) => {
         return (
             <Tag
                 color={value}
+                key={key}
                 onMouseDown={onPreventMouseDown}
                 closable={closable}
                 onClose={onClose}
@@ -67,12 +69,13 @@ const DynamicForm = (props) => {
 
     const createFormItem = () => {
         const formItemList = [];
+        // console.log(configData, "configDataconfigDataconfigData111");
         configData.forEach((item) => {
-            const { name, type, label, placeholder, list, rules, disabled = false, defaultValue } = item;
+            const { name, type, label, placeholder, list, rules, width, disabled = false, defaultValue } = item;
             switch (type) {
                 case 'input':
                     const inputItem = <Form.Item  {...formItemStyle} key={name} name={name} label={label} rules={rules}>
-                        <Input disabled={disabled} placeholder={placeholder} />
+                        <Input disabled={disabled} style={{ width }} placeholder={placeholder} />
                     </Form.Item>
                     formItemList.push(inputItem);
                     break;
@@ -80,8 +83,13 @@ const DynamicForm = (props) => {
                     const selectItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
                         <Select
                             disabled={disabled}
+                            style={{ width }}
+                            showSearch
                             placeholder={placeholder}
-                            defaultValue={defaultValue}
+                            filterOption={(input, option) => option.children.includes(input)}
+                            filterSort={(optionA, optionB) =>
+                                optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
+                            }
                         >
 
                             {
@@ -92,16 +100,16 @@ const DynamicForm = (props) => {
                     formItemList.push(selectItem);
                     break;
                 case 'multipleSelect':
-                    const multipleSelectItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
+                    const multipleSelectItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules} >
                         <Select
                             mode="multiple"
+                            placeholder={placeholder}
                             showArrow
+                            style={{ width }}
                             tagRender={tagRender}
-                            defaultValue={defaultValue}
-                            style={{
-                                width: '100%',
-                            }}
                             options={list}
+                            labelInValue={true}
+                            optionFilterProp="label"
                         >
 
                         </Select>
