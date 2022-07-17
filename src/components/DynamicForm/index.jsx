@@ -1,5 +1,7 @@
-import React, { useEffect, useRef } from 'react'
-import { Form, Input, Select, Button, message, Tag } from 'antd'
+import React, { useEffect, useRef } from 'react';
+import { Form, Input, Select, Button, message, Tag, DatePicker } from 'antd';
+import moment from 'moment';
+const { RangePicker } = DatePicker;
 
 const DynamicForm = (props) => {
     const { configData, initialData, formStyle, formItemStyle, buttonName, addOrModifyService, inline } = props;
@@ -28,7 +30,10 @@ const DynamicForm = (props) => {
             console.log("fields", fields);
             await addOrModifyService(fields);
             // setRefresh((val) => val + 1); //刷新页面
-            form.resetFields();
+            if (buttonName !== '搜索') {
+                form.resetFields();
+            }
+            // form.resetFields();
             // message.success(`${buttonName}成功`);
         }
         catch (err) {
@@ -84,6 +89,7 @@ const DynamicForm = (props) => {
                         <Select
                             disabled={disabled}
                             style={{ width }}
+                            allowClear
                             showSearch
                             placeholder={placeholder}
                             filterOption={(input, option) => option.children.includes(input)}
@@ -121,6 +127,18 @@ const DynamicForm = (props) => {
                     const photoUploadItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
 
                     </Form.Item>
+                    break;
+                case 'datePicker':
+                    const datePickerItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
+                        <RangePicker
+                            ranges={{
+                                Today: [moment(), moment()],
+                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                            }}
+                        />
+                    </Form.Item>
+                    formItemList.push(datePickerItem);
+                    break;
                 default:
 
             }
@@ -128,7 +146,11 @@ const DynamicForm = (props) => {
         })
 
         const submitButton = <Form.Item wrapperCol={{ offset: 10, span: 16 }} key={'addbutton'}>  <Button style={{ marginRight: "72px" }} type="primary" onClick={onClickSubmit} >{buttonName}</Button>  </Form.Item>
+        const resetButton = <Form.Item key={'delbutton'} > <Button type="primary" ghost onClick={() => { form.resetFields() }} >清空筛选项</Button></Form.Item >
         formItemList.push(submitButton);
+        if (buttonName === '搜索') {
+            formItemList.push(resetButton);
+        }
         return formItemList;
 
     }

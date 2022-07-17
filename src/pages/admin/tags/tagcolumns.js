@@ -3,22 +3,18 @@ import styles from './index.module.less'
 
 const usercolumns = [
     {
-        title: '标签id',
-        width: 100,
-        dataIndex: 'id',
-        key: 'id',
-    },
-    {
         title: '标签名称',
         width: 100,
         dataIndex: 'tagname',
         key: 'tagname',
+        sorter: true,
     },
     {
         title: '创建日期',
         width: 100,
         dataIndex: 'createTime',
         key: 'createTime',
+        sorter: true,
     },
     {
         title: '标签颜色',
@@ -29,13 +25,23 @@ const usercolumns = [
             return (
                 <Tag color={text} >{record.tagname}</Tag>
             )
-        }
+        },
     },
     {
         title: '标签状态',
         width: 100,
         dataIndex: 'isdeleted',
         key: 'isdeleted',
+        filters: [
+            {
+                text: '可用',
+                value: 0,
+            },
+            {
+                text: '不可用',
+                value: 1,
+            },
+        ],
         render: (text) => {
             if (text === 0 || text === '0') {
                 return '可用';

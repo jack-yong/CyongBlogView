@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { message } from 'antd'
+import { message, Divider } from 'antd'
 import RegularTable from '@/components/RegularTable'
 import SearchBar from '@/components/SearchBar'
 import modalconfig from './modalconfig'
@@ -44,7 +44,7 @@ const TagManger = (props) => {
     return (
         <>
             <SearchBar title={"增加新标签"} searchService={tagSearch} modalConfData={modalconfig} addService={tagAdd} visible={visible} setVisible={setVisible} />
-
+            <Divider />
             <RegularTable tableProps={tableProps} columns={mycolumns} isopt={true} align={true} />
         </>
     )

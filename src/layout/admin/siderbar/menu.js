@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-30 19:10:29
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-02 20:45:49
+ * @LastEditTime: 2022-07-16 15:38:20
  * @FilePath: \view\src\layout\admin\siderbar\menu.js
  * @Description: 
  */
@@ -49,7 +49,7 @@ const menu = [
     {
         path: '/admin/pushpins',
         icon: <PushpinOutlined />,
-        name: '归档管理'
+        name: '说说管理'
     }
     ,
     {

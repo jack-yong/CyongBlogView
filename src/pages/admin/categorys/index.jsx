@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { message } from 'antd';
+import { message, Divider } from 'antd';
 import RegularTable from '@/components/RegularTable';
 import axios from '@/utils/axios';
 import url from '@/utils/url';
@@ -45,6 +45,7 @@ const Categorys = (props) => {
     return (
         <>
             <SearchBar title={"增加新类别"} searchService={cateSearch} modalConfData={modalconfig} addService={cateAdd} visible={isVisible} setVisible={setisVisible} />
+            <Divider />
             <RegularTable tableProps={tableProps} columns={mycolumns} isopt={true} align={true} name={'cateTable'} />
         </>
     )

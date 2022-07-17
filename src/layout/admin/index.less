@@ -1,16 +1,24 @@
 .admin-container {
   .admin-header {
-    color: #fff;
+    z-index: 11;
+    color: #000;
+    background-color: #fff;
+    padding: 0 24px;
+    box-shadow: 0 2px 8px #f0f1f2;
+    line-height: 76px;
+    height: 76px;
 
     .header-title {
-      font-size: 20px;
+      font-size: 24px;
       display: inline-block;
-      transform: translate(20px, 5px);
+      transform: translate(17px, 2px);
     }
 
     .header-dropdown {
+      line-height: 76px;
       float: right;
-      color: #fff;
+      color: #000;
+      background-color: #fff;
     }
   }
 
@@ -22,7 +30,7 @@
   .admin-content-wrap {
     padding: 20px 24px;
 
-    height: calc(100vh - 64px);
+    height: calc(100vh - 76px);
 
     .admin-content {
       position: relative;
@@ -30,8 +38,8 @@
       padding: 24px;
       margin: 0;
       flex: none;
-      height: calc(90vh - 64px);
-      margin-bottom: 24px;
+      height: calc(90vh - 76px);
+      // margin-bottom: 24px;
     }
   }
 

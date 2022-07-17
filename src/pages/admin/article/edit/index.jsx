@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.module.less';
 import { useSelector } from 'react-redux'
 import { categoryFilter, tagFilter } from '@/utils/index'
-import { message, button, Form, Input, Select, Divider } from 'antd';
+import { message, Divider } from 'antd';
 import DynamicForm from '@/components/DynamicForm';
 import MarkDown from '@/components/MarkDown';
 import axios from '@/utils/axios';
@@ -91,9 +91,10 @@ const ArticleEdit = (props) => {
 
     }, [props.match.params])
 
-    const modify = (params) => {
+    const addmodify = (params) => {
         params["content"] = content;
         params["coverImage"] = '';
+        // console.log(JSON.stringify(params["tags"]), 'tagstags');
         params["tags"] = JSON.stringify(params["tags"]);
         console.log(params, "paramsparams");
         setContent("");
@@ -119,7 +120,7 @@ const ArticleEdit = (props) => {
                     <DynamicForm
                         configData={configData}
                         buttonName={articleId ? "修改" : "添加"}
-                        addOrModifyService={modify}
+                        addOrModifyService={addmodify}
                         inline={true}
                     />
                 }

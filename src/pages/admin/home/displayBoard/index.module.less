@@ -1,0 +1,73 @@
+.board {
+    display: flex;
+    // height: 73.5%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1vh;
+
+    .boxlist {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+        .title {
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.85);
+            letter-spacing: 1.2px;
+            padding-left: 14px;
+            position: relative;
+
+            .line {
+                display: block;
+                width: 5px;
+                height: 20px;
+                background: #2385E8;
+                border-radius: 10px;
+                position: absolute;
+                left: 0;
+                top: 4px;
+            }
+
+        }
+
+        .info {
+            padding: 0;
+            margin-left: 0;
+
+            .infolist {
+                float: left;
+                text-align: center;
+                // width: 25%;
+                padding: 10px;
+                margin: 10px 25px 0px;
+
+                .title3 {
+                    font-size: 18px;
+                    color: rgba(0, 0, 0, 0.65);
+                    letter-spacing: 1.05px;
+
+                }
+
+                .datanum {
+                    font-size: 18px;
+                    color: #1890ff;
+                    letter-spacing: 1.05px;
+                }
+            }
+
+            .infolist:hover {
+                box-shadow: 0 2px 8px #dde0e2;
+                border-radius: 10px;
+
+                .datanum {
+                    color: #ee6666;
+                }
+
+
+            }
+        }
+    }
+
+
+}

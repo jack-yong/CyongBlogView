@@ -2,13 +2,13 @@
  * @Author: cyong
  * @Date: 2022-04-05 17:15:46
  * @LastEditors: cyong
- * @LastEditTime: 2022-06-21 21:01:11
+ * @LastEditTime: 2022-07-11 20:46:45
  * @FilePath: \view\src\pages\admin\user\index.jsx
  * @Description: 用户管理的组件
  */
 
 import React, { useState } from 'react'
-import { message } from 'antd'
+import { message, Divider } from 'antd'
 import RegularTable from '@/components/RegularTable'
 import SearchBar from '@/components/SearchBar'
 import modalconfig from './modalconfig'
@@ -56,7 +56,7 @@ const AdminUser = (props) => {
     return (
         <>
             <SearchBar title={"增加新用户"} searchService={userSearch} modalConfData={modalconfig} addService={userAdd} visible={visible} setVisible={setVisible} />
-
+            <Divider />
             <RegularTable tableProps={tableProps} columns={mycolumns} isopt={true} align={true} />
 
         </>

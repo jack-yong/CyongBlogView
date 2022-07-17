@@ -2,12 +2,6 @@ import { Button } from "antd";
 import styles from './index.module.less'
 const columns = [
     {
-        title: '类别id',
-        width: 100,
-        dataIndex: 'id',
-        key: 'id',
-    },
-    {
         title: '类别图片',
         width: 100,
         dataIndex: 'cateimgurl',
@@ -18,6 +12,7 @@ const columns = [
         width: 100,
         dataIndex: 'catename',
         key: 'catename',
+        sorter: true,
     },
     {
         title: '状态',
@@ -31,13 +26,25 @@ const columns = [
             else {
                 return '不可用'
             }
-        }
+        },
+        filters: [
+            {
+                text: '可用',
+                value: 0,
+            },
+            {
+                text: '不可用',
+                value: 1,
+            },
+        ],
     },
     {
         title: '创建时间',
         width: 100,
         dataIndex: 'createtime',
         key: 'createtime',
+        sorter: true,
+        sorter: true,
     },
 
     {

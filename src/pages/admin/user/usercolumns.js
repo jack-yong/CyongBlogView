@@ -3,12 +3,6 @@ import styles from './index.module.less'
 
 const usercolumns = [
     {
-        title: '用户id',
-        width: 100,
-        dataIndex: 'id',
-        key: 'id',
-    },
-    {
         title: '用户头像',
         width: 100,
         dataIndex: 'imageurl',
@@ -22,13 +16,14 @@ const usercolumns = [
                 />
             )
         }
-
     },
     {
         title: '用户名',
         width: 100,
         dataIndex: 'username',
         key: 'username',
+        sorter: true,
+
     },
     {
         title: '用户密码',
@@ -53,12 +48,31 @@ const usercolumns = [
         width: 100,
         dataIndex: 'recentlandtime',
         key: 'recentlandtime',
+        sorter: true,
     },
     {
         title: '用户角色',
         width: 100,
         dataIndex: 'role',
         key: 'role',
+        render: (text) => {
+            if (text === 'user') {
+                return '普通用户';
+            }
+            else {
+                return '管理员'
+            }
+        },
+        filters: [
+            {
+                text: '普通用户',
+                value: 'user',
+            },
+            {
+                text: '管理员',
+                value: 'admin',
+            },
+        ],
     },
     {
         title: '操作',

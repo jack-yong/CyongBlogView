@@ -6,19 +6,23 @@ import { message } from 'antd'
 const useAntdTable = ({ requestUrl = '', queryParams = null }) => {
     const [loading, setLoading] = useState(false);
     const [dataList, setDataList] = useState([]);
-    const [tablePagination, setTablePagination] = useState({ current: 1, pageSize: pageconfig.pageSize, total: 0 })
+    const [sorter, setSorter] = useState("");
+    const [myfilters, setMyFilters] = useState({});
+    const [tablePagination, setTablePagination] = useState({ current: 1, pageSize: pageconfig.pageSize, total: 0 });
 
     useEffect(() => {
-        fetchListWithLoading()
+        fetchListWithLoading();
     }, [])
 
     const fetchDataList = (params) => {
         const requestParams = {
             page: tablePagination.current,
             pageSize: tablePagination.pageSize,
+            sorter: sorter,
+            filters: myfilters,
             ...queryParams,
             ...params
-        }
+        };
 
         console.log(requestParams, 'requestParams');
         console.log(tablePagination.current, 'tablePagination.current');
@@ -82,9 +86,26 @@ const useAntdTable = ({ requestUrl = '', queryParams = null }) => {
      * @return {*}
      */
     const handleTableChange = (pagination, filters, sorter) => {
-        if (JSON.stringify(filters) === '{}' && JSON.stringify(sorter) === '{}') {
-            fetchListWithLoading({ page: pagination.current })
+        let tempsorter = '';
+        if (sorter && sorter.order) {
+            // console.log(sorter.field + '&&' + sorter.order, "sortersortersorter");
+            tempsorter = sorter.field + '&&' + sorter.order;
+            setSorter(tempsorter);
         }
+        // console.log(filters, "filtersfiltersfilters");
+        let tmpfilters = {}
+        for (let key in filters) {
+            if (filters[key] !== null) {
+                tmpfilters[key] = filters[key].toString();
+            }
+        }
+        setMyFilters(tmpfilters);
+
+
+        // console.log(JSON.stringify(sorter));
+
+        fetchListWithLoading({ page: pagination.current, sorter: tempsorter, filters: tmpfilters })
+
     }
 
     /**
