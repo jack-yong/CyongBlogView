@@ -2,12 +2,12 @@
  * @Author: cyong
  * @Date: 2022-01-04 16:13:42
  * @LastEditors: cyong
- * @LastEditTime: 2022-06-17 18:18:51
- * @FilePath: \view\src\layout\web\header\right\component\RegisterModal.jsx
+ * @LastEditTime: 2022-07-21 20:26:38
+ * @FilePath: \view\src\layout\web\header\right\RegisterModal\index.jsx
  * @Description: 注册的弹窗组件
  */
 
-import React from 'react'
+import React from 'react';
 import { Button, Modal, Form, Input } from 'antd';
 
 const FormItemLayout = {
@@ -133,4 +133,4 @@ const RegisterModal = (props) => {
     )
 }
 
-export default RegisterModal
+export default RegisterModal;

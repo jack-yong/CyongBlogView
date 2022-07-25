@@ -2,14 +2,23 @@
  * @Author: cyong
  * @Date: 2021-11-29 19:42:21
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-31 14:44:51
+ * @LastEditTime: 2022-07-21 21:04:32
  * @FilePath: \view\src\routes\web.js
- * @Description: 用户端的router路由，暂时弃用，后续还会继续添加
+ * @Description: 现在正在使用
  */
 
-import Userhome from "../pages/web/home"
-import Userlayout from "../layout/web"
-import Article from '../pages/web/article'
+import Userhome from "../pages/web/home";
+import Userlayout from "../layout/web";
+import Article from '../pages/web/article';
+import Category from "@/pages/web/category/indxe";
+import Tags from "@/pages/web/tags";
+import Search from "@/pages/web/search";
+import About from "@/pages/web/about";
+import DevLog from "@/pages/web/devlog";
+import Message from "@/pages/web/message";
+import Portfolio from "@/pages/web/portfolio";
+import Pushpins from "@/pages/web/pushpins";
+import Link from "@/pages/web/link";
 const webRoutes = {
     path: '/',
     component: Userlayout,
@@ -19,25 +28,49 @@ const webRoutes = {
             component: Userhome,
         },
         {
+            path: 'search',
+            component: Search,
+        },
+        {
             path: 'article/:id',
-            component: ''
+            component: Article,
         },
         {
-            path: 'archives',
-            component: ''
+            path: 'category',
+            component: Category,
         },
         {
-            path: 'categories',
-            component: ''
+            path: 'category/:key',
+            component: '',
         },
         {
-            path: 'categories/:name',
-            component: ''
+            path: 'tags',
+            component: Tags,
         },
         {
-            path: 'tages',
-            component: Article
-        }
+            path: 'link',
+            component: Link,
+        },
+        {
+            path: 'about',
+            component: About,
+        },
+        {
+            path: 'devlog',
+            component: DevLog,
+        },
+        {
+            path: 'message',
+            component: Message,
+        },
+        {
+            path: 'portfolio',
+            component: Portfolio,
+        },
+        {
+            path: 'pushpins',
+            component: Pushpins,
+        },
     ]
 }
 

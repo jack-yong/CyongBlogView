@@ -2,12 +2,15 @@
  * @Author: cyong
  * @Date: 2021-11-29 14:31:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-06-21 20:23:44
+ * @LastEditTime: 2022-07-23 18:59:58
  * @FilePath: \view\src\config.js
  * @Description: 存放项目中的一些配置信息
  */
-import { GithubOutlined } from '@ant-design/icons';
-
+import { GithubOutlined, ZhihuOutlined, QqOutlined, WechatOutlined } from '@ant-design/icons';
+import Image from '@/assets/images/avatar.jpg';
+import wechat from '@/assets/images/wechat.jpg';
+import qqImage from '@/assets/images/qq.jpg';
+import DefBlogImage from '@/assets/images/defaultImage.png'
 //本地后端接口url
 export const Local_Base_Url = 'http://localhost:8888'
 
@@ -15,22 +18,60 @@ export const Local_Base_Url = 'http://localhost:8888'
 export const HEADER_BLOG_NAME = 'cyong的博客' // header title 显示的名字
 
 export const SIDEBAR = {
-    avatar: require('./assets/images/avatar.jpg'), // 侧边栏头像
+    avatar: Image, // 侧边栏头像
     title: 'cyong', // 标题
-    subTitle: '学而知不足', // 子标题
+    subTitle: '道路是曲折的,前途是光明的！', // 子标题
     // 个人主页
-    homepages: {
-        github: {
+    homepages: [
+        {
             link: 'https://github.com/jack-yong',
-            icon: <GithubOutlined className='homepage-icon' />
+            icon: <GithubOutlined />,
+            content: '',
+            isLink: true,
+        },
+        {
+            link: 'https://blog.csdn.net/weixin_42920294',
+            icon: <ZhihuOutlined />,
+            content: '',
+            isLink: true,
+        },
+        {
+            link: '',
+            icon: <QqOutlined />,
+            content: <img src={qqImage} alt='QQ' style={{ width: '120px', height: '120px' }} />,
+            isLink: false,
+        },
+        {
+            link: '',
+            icon: <WechatOutlined />,
+            content: <img src={wechat} alt='WeChat' style={{ width: '120px', height: '120px' }} />,
+            isLink: false,
         }
-    }
+    ]
 }
 
 // === discuss avatar
 export const DISCUSS_AVATAR = SIDEBAR.avatar // 评论框博主头像
 
+//default blogImage
+export const BlogImage = DefBlogImage;
+
 //设计
 export const pageconfig = {
-    pageSize: 6
+    pageSize: 6,
+    homePagesize: 10,
 }
+
+//
+export const drawerStyle = {
+    labelCol: {
+        span: 4
+    },
+    wrapperCol: {
+        span: 20
+    },
+};
+export const drawerItemStyle = {
+    wrapperCol: { span: 16 },
+};
+

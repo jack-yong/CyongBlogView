@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from '@/utils/axios';
 import url from '@/utils/url';
-import { getCategoryList } from '@/redux/actions/categoryaction'
+import { getCategoryList } from '@/redux/actions/categoryaction';
 import { getTagList } from '@/redux/actions/tagaction';
 
 //该组件用来存放一些公用的组件或者初始化的状态

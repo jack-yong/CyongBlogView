@@ -52,7 +52,7 @@ const DisBoard = (props) => {
                     case 'user':
                         obj.name = '用户数量';
                         obj.num = Num;
-                        obj.key = '/admin/user/manger';
+                        obj.key = '/admin/user';
                         userObj.data.push(obj);
                         break;
                     case 'link':
@@ -133,4 +133,4 @@ const DisBoard = (props) => {
     )
 }
 
-export default DisBoard
+export default DisBoard;

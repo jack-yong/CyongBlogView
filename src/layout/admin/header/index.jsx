@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-30 19:10:06
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-14 22:06:15
+ * @LastEditTime: 2022-07-21 16:07:01
  * @FilePath: \view\src\layout\admin\header\index.jsx
  * @Description: 管理端头部组件
  */
@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom'
 import { logout } from '@/redux/actions/useraction'
 import SvgIcon from '@/components/SvgIcon'
 
-import { SettingOutlined } from '@ant-design/icons';
+import { HomeOutlined } from '@ant-design/icons';
 
 const Adminheader = (props) => {
     const dispatch = useDispatch()
@@ -56,7 +56,7 @@ const Adminheader = (props) => {
                 <span className='header-title'>CyBlog后台管理</span>
                 <Dropdown overlay={menu} className='header-dropdown'>
                     <div className='ant-dropdown-link'>
-                        <SettingOutlined style={{ paddingRight: '30px', fontSize: "20px" }} />
+                        <HomeOutlined style={{ paddingRight: '30px', fontSize: "20px" }} />
                     </div>
                 </Dropdown>
             </div>

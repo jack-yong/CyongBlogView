@@ -2,22 +2,23 @@ import React from 'react'
 import { Pagination } from 'antd'
 import styles from './index.module.less'
 const MyPagination = (props) => {
-    const { current, defaultPageSize, total, setPage } = props;
+    const { current, total, onChange, pageSize, hideOnSinglePage } = props;
     return (
         <>
             {
-                total > defaultPageSize ?
-                    (<Pagination
-                        className={styles.pagination}
+                <div className={styles.pagination}>
+
+                    <Pagination
                         current={current}
                         total={total}
-                        defaultPageSize={defaultPageSize}
+                        pageSize={pageSize}
                         showSizeChanger={false}
                         showTitle={false}
-                        onChange={(page) => {
-                            setPage(page)
-                        }}
-                    />) : null
+                        onChange={onChange}
+                        hideOnSinglePage={hideOnSinglePage}
+                    />
+                </div>
+
             }
 
         </>

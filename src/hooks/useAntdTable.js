@@ -67,7 +67,7 @@ const useAntdTable = ({ requestUrl = '', queryParams = null }) => {
             await func();
             setTimeout(() => {
                 fetchDataList()
-            }, 100);
+            }, 150);
         } catch (error) {
             console.log('updateList error:', error);
             setLoading(false)
@@ -129,6 +129,7 @@ const useAntdTable = ({ requestUrl = '', queryParams = null }) => {
                 current: tablePagination.current,
                 pageSize: tablePagination.pageSize,
                 total: tablePagination.total,
+                hideOnSinglePage: true,
                 size: 'default',
                 showTotal: total => `共${total}条`
             },

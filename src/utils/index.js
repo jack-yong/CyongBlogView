@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-02-27 21:46:08
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-09 19:04:13
+ * @LastEditTime: 2022-07-21 18:50:49
  * @FilePath: \view\src\utils\index.js
  * @Description: 常用的一些工具函数
  */
@@ -77,4 +77,20 @@ export const tagFilter = (list) => {
         filterList.push(filterobj);
     })
     return filterList;
-}
+};
+
+//匹配路由中的key;
+export function getMenuOpenKeys(menu) {
+    const list = []
+    menu.forEach(item => {
+        if (item.children) {
+            item.children.forEach(child => {
+                list.push({
+                    pathname: child.key,
+                    openKey: item.key
+                })
+            })
+        }
+    })
+    return list
+};

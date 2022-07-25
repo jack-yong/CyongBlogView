@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-30 19:10:14
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-14 15:42:34
+ * @LastEditTime: 2022-07-21 18:51:52
  * @FilePath: \view\src\layout\admin\siderbar\index.jsx
  * @Description: 管理端侧边栏控件
  */
@@ -11,26 +11,8 @@ import { withRouter } from 'react-router-dom'
 import { Menu } from 'antd'
 // import menu from './menu'
 import menu from './menus';
+import { getMenuOpenKeys } from '@/utils/index';
 // const SubMenu = Menu.SubMenu
-
-
-
-function getMenuOpenKeys(menu) {
-    const list = []
-    menu.forEach(item => {
-        if (item.children) {
-            item.children.forEach(child => {
-                list.push({
-                    pathname: child.key,
-                    openKey: item.key
-                })
-            })
-        }
-    })
-    return list
-}
-
-const menuMenuOpenKeys = getMenuOpenKeys(menu)
 
 
 const Siberbar = (props) => {
@@ -67,7 +49,7 @@ const Siberbar = (props) => {
     //     }
     //     return list.map(l => renderRoute(l))
     // }
-    const target = menuMenuOpenKeys.find(d => d.pathname === props.selectedKeys[0]);
+    const target = getMenuOpenKeys(menu).find(d => d.pathname === props.selectedKeys[0]);
     const openKeys = target ? [target.openKey] : [];
     // const menuClick = (e) => {
     //     console.log('click ', e);

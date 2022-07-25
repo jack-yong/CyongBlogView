@@ -1,6 +1,6 @@
 
 
-import { NavLink as Link } from 'react-router-dom'
+import { NavLink as Link } from 'react-router-dom';
 import {
     HomeOutlined,
     FileProtectOutlined,
@@ -12,7 +12,7 @@ import {
     PushpinOutlined,
     LinkOutlined,
     MessageOutlined,
-    SettingOutlined,
+    // SettingOutlined,
     AppstoreOutlined,
     BookOutlined
 } from '@ant-design/icons';
@@ -41,10 +41,10 @@ const menu = [
         ]
     },
     {
-        key: '/admin/user/manger',
+        key: '/admin/user',
         icon: <UserOutlined />,
         // name: '用户管理'
-        label: <Link to="/admin/user/manger">用户管理</Link>
+        label: <Link to="/admin/user">用户管理</Link>
     },
     {
         key: '/admin/categorys',

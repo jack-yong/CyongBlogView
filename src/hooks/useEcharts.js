@@ -1,5 +1,3 @@
-import React from 'react'
-
 const useEcharts = ({ type = '', data = null }) => {
 
     const buildDate = (pieData) => {
@@ -28,13 +26,12 @@ const useEcharts = ({ type = '', data = null }) => {
         tooltip: {
             trigger: 'item'
         },
-        legend: {
-            orient: 'vertical',
-            left: 'left'
-        },
+        // legend: {
+        //     orient: 'vertical',
+        //     left: 'left'
+        // },
         series: [
             {
-                name: 'Access From',
                 type: 'pie',
                 radius: '88%',
                 data: buildDate(data),

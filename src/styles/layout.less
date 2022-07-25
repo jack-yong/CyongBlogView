@@ -1,13 +1,9 @@
-.app-container {  
- 
-  // width: 100vw;
+.app-container {
+
   align-items: center;
   justify-content: center;
-  .pm-ribbon{
-    position: absolute ; 
-    top: 64px ;
-  }
-  .appheader-root{
+
+  .appheader-root {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -20,52 +16,55 @@
       width: 70vw;
       padding: 0 1vw;
       background: #fff;
-      justify-content:space-between  ; 
+      justify-content: space-between;
       flex-direction: row;
 
       // z-index: 10;
       // max-width: 100%;
-     
       .head-row {
         justify-content: space-between;
       }
+
       .header-left {
         font-size: 25px;
         // margin-right: 20px;
       }
-      .header-right{
+
+      .header-right {
         display: flex;
+
         .search-bar {
           padding: 16px 16px;
         }
-        .header-navbar{
+
+        .header-navbar {
           border-bottom: 1px;
         }
+
         .header-button {
-            text-align: center;
-            padding-left: 16px
+          text-align: center;
+          padding-left: 16px
         }
 
       }
     }
 
   }
+
   .app-content {
     width: 70vw;
     // height: 65vh;
+    height: 80vh;
     padding: 0 1vw;
     margin-top: 2vh;
     background: #fff;
     z-index: 1;
-    
-
   }
-
 }
 
-@media (min-width: 1300px) and (max-width: 4096px){
-  .app-container .appheader-root .app-header  {
-      width: 1400px;
+@media (min-width: 1300px) and (max-width: 4096px) {
+  .app-container .appheader-root .app-header {
+    width: 1400px;
   }
 
 
@@ -73,7 +72,3 @@
     width: 1400px;
   }
 }
-  
-
-
-  

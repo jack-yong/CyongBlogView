@@ -2,13 +2,13 @@
  * @Author: cyong
  * @Date: 2022-03-01 10:37:50
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-01 12:31:41
+ * @LastEditTime: 2022-07-20 18:47:35
  * @FilePath: \view\src\components\Href\index.jsx
  * @Description: 封装可以跳转新窗口的a标签
  */
 
 import React from 'react';
-import { isExternal } from '../../utils/index';
+import { isExternal } from '@/utils/index';
 
 
 /**
@@ -27,10 +27,10 @@ const Href = ({ children, href, ...rest }) => {
     }
     return (
         <a target='_blank' rel='noreferrer noopener' {...rest} href={url}>
-            {children}
+            {href}
         </a>
     )
 
 }
 
-export default Href
+export default Href;

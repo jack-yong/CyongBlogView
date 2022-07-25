@@ -4,7 +4,7 @@ import * as echarts from 'echarts/core';
 import { LabelLayout } from 'echarts/features';
 import {
     // LineChart,
-    BarChart,
+    // BarChart,
     PieChart,
     // ScatterChart,
     // RadarChart,
@@ -57,7 +57,7 @@ import {
     // VisualMapPiecewiseComponent,
     // AriaComponent,
     // TransformComponent,
-    DatasetComponent,
+    // DatasetComponent,
 } from 'echarts/components';
 import {
     CanvasRenderer,

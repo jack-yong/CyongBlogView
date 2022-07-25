@@ -1,5 +1,10 @@
 const modalconfig = [
     {
+        name: 'categoryimage',
+        type: 'photoUpload',
+        label: '类别图片',
+    },
+    {
         name: 'cateName',
         type: 'input',
         label: '类别名称',

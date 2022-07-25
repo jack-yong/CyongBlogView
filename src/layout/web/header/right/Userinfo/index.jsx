@@ -2,31 +2,28 @@
  * @Author: cyong
  * @Date: 2022-01-03 17:43:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-06-19 16:17:41
- * @FilePath: \view\src\layout\web\header\right\component\Userinfo.jsx
+ * @LastEditTime: 2022-07-22 11:20:05
+ * @FilePath: \view\src\layout\web\header\right\Userinfo\index.jsx
  * @Description:  header组件中右边的Userinfo子组件
  */
 
-import React, { useState } from 'react'
-
-
+import React, { useState } from 'react';
 //引入组件
-import { Button, Dropdown, Menu, message } from 'antd'
-import LoginModal from './loginModal';
-import RegisterModal from './RegisterModal';
-import AppAvatar from '../../../../../components/Avatar'
-
+import { Button, Dropdown, Menu, message } from 'antd';
+import LoginModal from '../LoginModal';
+import RegisterModal from '../RegisterModal';
+import AppAvatar from '@/components/Avatar';
+import { useHistory } from 'react-router-dom';
 //redux
 import { useSelector, useDispatch } from 'react-redux';
-
 //引入退出登录的aciton
-import { logout, loginSuccess, RegisterSuccess } from '../../../../../redux/actions/useraction'
-
+import { logout, loginSuccess, RegisterSuccess } from '@/redux/actions/useraction';
 //进行http请求
-import axios from '../../../../../utils/axios'
-
+import axios from '@/utils/axios';
 //后端url地址
-import url from '../../../../../utils/url'
+import url from '@/utils/url';
+
+import styles from './index.module.less';
 
 
 
@@ -36,15 +33,32 @@ const Userinfo = (props) => {
     const userInfo = useSelector(state => state.user);
     const [loginvisible, setloginVisible] = useState(false);
     const [registervisible, setregisterVisible] = useState(false);
-    const { userNickname, userAvatarimgurl } = userInfo
+    const history = useHistory();
+    const { userNickname, userAvatarimgurl } = userInfo;
 
     const MenuOverLay = (
-        <Menu>
-            <Menu.Item>
-                <span className='user-logout' onClick={e => dispatch(logout())}>
-                    退出登录
-                </span>
-            </Menu.Item>
+        <Menu
+            items={[
+                {
+                    label: (
+                        <span className='user-logout' onClick={e => history.push('/admin')}>
+                            后台管理
+                        </span>
+                    )
+                    ,
+                    key: '/admin',
+                },
+                {
+                    label: (
+                        <span className='user-logout' onClick={e => dispatch(logout())}>
+                            退出登录
+                        </span>
+                    )
+                    ,
+                    key: '/logout',
+                },
+            ]}
+        >
         </Menu>
     )
 
@@ -94,9 +108,9 @@ const Userinfo = (props) => {
     }
 
     return (
-        <div className='header-button'>
+        <div className={styles.headerButton}>
             {userNickname !== '' ? (
-                <Dropdown placement='bottomCenter' overlay={MenuOverLay} trigger={['click', 'hover']}>
+                <Dropdown placement='bottom' overlay={MenuOverLay} trigger={['click', 'hover']}>
                     <div style={{ height: 55 }}>
                         <AppAvatar username={userNickname} avatarurl={userAvatarimgurl} />
                     </div>
@@ -129,4 +143,4 @@ const Userinfo = (props) => {
     )
 }
 
-export default Userinfo
+export default Userinfo;

@@ -24,8 +24,10 @@ const AdminHome = (props) => {
   const pieChartOpt = useEcharts({ data: pieData })
 
   const switchOpt = (status) => {
-    console.log(status);
+    // console.log(status);
+    setPieLoading(true)
     if (status) {
+
       setType('tag');
     } else {
       setType('category');

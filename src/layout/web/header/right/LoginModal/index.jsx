@@ -2,8 +2,8 @@
  * @Author: cyong
  * @Date: 2022-01-04 15:14:46
  * @LastEditors: cyong
- * @LastEditTime: 2022-03-09 16:33:16
- * @FilePath: \view\src\pages\layout\web\header\right\component\loginModal.jsx
+ * @LastEditTime: 2022-07-21 16:38:16
+ * @FilePath: \view\src\layout\web\header\right\LoginModal\index.jsx
  * @Description: 登录的弹窗组件
  */
 
@@ -87,4 +87,4 @@ const LoginModal = (props) => {
     )
 }
 
-export default LoginModal
+export default LoginModal;

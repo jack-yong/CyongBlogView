@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Form, Input, Select, Button, message, Tag, DatePicker } from 'antd';
 import moment from 'moment';
+import MyUpload from '../Upload';
 const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 
 const DynamicForm = (props) => {
-    const { configData, initialData, formStyle, formItemStyle, buttonName, addOrModifyService, inline } = props;
+    const { configData, initialData, formStyle, formItemStyle, buttonName, addOrModifyService, setDrawerVisible, inline } = props;
     const submitRef = useRef(false);
     const [form] = Form.useForm();
 
@@ -32,6 +34,9 @@ const DynamicForm = (props) => {
             // setRefresh((val) => val + 1); //刷新页面
             if (buttonName !== '搜索') {
                 form.resetFields();
+            }
+            if (setDrawerVisible) {
+                setDrawerVisible(false);
             }
             // form.resetFields();
             // message.success(`${buttonName}成功`);
@@ -76,7 +81,7 @@ const DynamicForm = (props) => {
         const formItemList = [];
         // console.log(configData, "configDataconfigDataconfigData111");
         configData.forEach((item) => {
-            const { name, type, label, placeholder, list, rules, width, disabled = false, defaultValue } = item;
+            const { name, type, label, placeholder, list, rules, width, disabled = false } = item;
             switch (type) {
                 case 'input':
                     const inputItem = <Form.Item  {...formItemStyle} key={name} name={name} label={label} rules={rules}>
@@ -125,8 +130,9 @@ const DynamicForm = (props) => {
                     break;
                 case 'photoUpload':
                     const photoUploadItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
-
+                        <MyUpload />
                     </Form.Item>
+                    formItemList.push(photoUploadItem);
                     break;
                 case 'datePicker':
                     const datePickerItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
@@ -139,7 +145,14 @@ const DynamicForm = (props) => {
                     </Form.Item>
                     formItemList.push(datePickerItem);
                     break;
+                case 'textarea':
+                    const textAreaItem = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
+                        <TextArea rows={5} />
+                    </Form.Item>
+                    formItemList.push(textAreaItem);
+                    break;
                 default:
+                    break;
 
             }
 
