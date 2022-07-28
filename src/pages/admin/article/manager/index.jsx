@@ -3,9 +3,9 @@ import DynamicForm from '@/components/DynamicForm';
 import RegularTable from '@/components/RegularTable';
 import { useSelector } from 'react-redux'
 import { categoryFilter, tagFilter } from '@/utils/index'
-import { message, Button, Divider, Tag } from 'antd';
+import { Button, Divider, Tag } from 'antd';
 import useAntdTable from '@/hooks/useAntdTable';
-import axios from '@/utils/axios';
+// import axios from '@/utils/axios';
 import url from '@/utils/url';
 import styles from './index.module.less'
 

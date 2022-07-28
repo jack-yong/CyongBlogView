@@ -28,7 +28,7 @@ const RegularTable = (props) => {
                 bordered
                 size="small"
 
-                scroll={{ x: 'calc(700px + 50%)', y: 440 }}
+                scroll={{ x: 'calc(700px + 50%)', y: 540 }}
             />
         </>
     )

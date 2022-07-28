@@ -122,7 +122,6 @@ const Section = (props) => {
                     itemLayout="vertical"
                     loading={loading}
                     size="large"
-                    pagination={{ ...pagination }}
                     dataSource={dataList}
                     renderItem={renderitemList} />
             }

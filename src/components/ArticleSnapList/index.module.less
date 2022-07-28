@@ -3,22 +3,46 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: #000;
 
     .articleListItem {
-        margin: 10px;
+        width: 40vw;
+        margin-top: 20px;
+        padding: 10px 20px;
         box-shadow: 0 2px 8px #dde0e2;
-        border-radius: 10px;
+        border-radius: 5px;
+        text-align: left;
+        transition: all 0.3s linear;
 
         .title {
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: color 0.3s linear;
+            font-weight: bold;
         }
 
-        .desc {
+        .title:hover {
+            color: #1890ff;
+        }
+
+        .descshow {
             display: flex;
             flex-direction: row;
+            align-items: baseline;
+            margin-top: 5px;
 
+            .descshowitem {
+                align-items: baseline;
+                padding-left: 2px;
+
+                .itemicon {
+                    margin-right: 5px;
+                }
+            }
         }
+    }
+
+    .articleListItem:hover {
+        box-shadow: 0 4px 12px #bcbfc0;
     }
 }

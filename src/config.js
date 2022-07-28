@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-11-29 14:31:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-23 18:59:58
+ * @LastEditTime: 2022-07-28 19:34:24
  * @FilePath: \view\src\config.js
  * @Description: 存放项目中的一些配置信息
  */
@@ -59,7 +59,7 @@ export const BlogImage = DefBlogImage;
 //设计
 export const pageconfig = {
     pageSize: 6,
-    homePagesize: 10,
+    homePagesize: 6,
 }
 
 //
