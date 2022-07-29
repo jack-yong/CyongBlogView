@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Spin, Input } from 'antd';
-import axios from '@/utils/axios';
+import React from 'react';
+import { Input } from 'antd';
 import url from '@/utils/url';
-import Qs from 'qs';
 import useFetchList from '@/hooks/useFetchList';
 import ArticleSnapList from '@/components/ArticleSnapList';
 import MyPagination from '@/components/MyPagination';

@@ -30,6 +30,7 @@ const Category = (props) => {
 
     useEffect(() => {
         onFetch({ categoryid: kindid })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [kindid])
 
     return (

@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-11-29 14:31:48
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-28 19:34:24
+ * @LastEditTime: 2022-07-29 19:41:43
  * @FilePath: \view\src\config.js
  * @Description: 存放项目中的一些配置信息
  */
@@ -51,7 +51,7 @@ export const SIDEBAR = {
 }
 
 // === discuss avatar
-export const DISCUSS_AVATAR = SIDEBAR.avatar // 评论框博主头像
+export const DISCUSS_AVATAR = Image // 评论框博主头像
 
 //default blogImage
 export const BlogImage = DefBlogImage;

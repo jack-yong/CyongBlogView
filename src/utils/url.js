@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-15 09:10:55
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-23 19:44:07
+ * @LastEditTime: 2022-07-29 19:03:37
  * @FilePath: \view\src\utils\url.js
  * @Description: 存放向后端请求地址的url
  */
@@ -31,6 +31,7 @@ const url = {
     //日常说说相关的接口
     pushpinssearch: '/pushpins/search',
     pushpinsadd: '/pushpins/add',
+    pushpinsall: '/pushpins/all',
     //友链相关的接口
     linksearch: '/link/search',
     linkadd: '/link/add',
