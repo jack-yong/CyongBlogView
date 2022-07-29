@@ -16,7 +16,6 @@ const Category = (props) => {
     console.log(kindid);
     const { dataList, loading, pagination, onFetch } = useFetchList({
         requestUrl: url.articlesearch,
-        queryParams: { categoryid: kindid }
     })
 
     useEffect(() => {
@@ -32,6 +31,7 @@ const Category = (props) => {
     useEffect(() => {
         onFetch({ categoryid: kindid })
     }, [kindid])
+
     return (
         <div className={styles.categorypage}>
             <div className={styles.categoryshow}>

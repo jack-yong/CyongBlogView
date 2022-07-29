@@ -31,6 +31,7 @@ const Tags = (props) => {
 
     useEffect(() => {
         onFetch({ tags: kindid })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [kindid])
 
     // console.log(tags);
