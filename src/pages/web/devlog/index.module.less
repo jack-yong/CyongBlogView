@@ -1,0 +1,58 @@
+.devlog {
+    height: 100vh;
+    background-color: #fff;
+    // text-align: center;
+    // padding: auto;
+    padding: 40px;
+    border-radius: 20px;
+
+    .dlitem {
+        box-sizing: border-box;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // margin: 10px;
+        top: 10px;
+        padding: 20px;
+        border-radius: 10px;
+        min-height: 50px;
+        font-size: 16px;
+        background-color: rgba(64, 169, 255, 0.1);
+        transform: scale(1);
+        transition: all 0.4s ease-out;
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .icon {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+
+
+        .content {
+            font-size: 14px;
+            white-space: pre
+        }
+
+        .time {
+            position: absolute;
+            margin: 0.2rem;
+            padding: 0.2rem;
+            bottom: 5px;
+            right: 5px;
+            border-radius: 10px;
+            background-color: rgba(64, 169, 255, 0.2);
+        }
+
+    }
+
+    .dlitem:hover {
+        transform: scale(1.02);
+    }
+}
