@@ -8,7 +8,6 @@ import {
     CheckOutlined,
     BugOutlined,
     RocketOutlined,
-    TagsOutlined
 } from '@ant-design/icons'
 const Devlog = (props) => {
 
