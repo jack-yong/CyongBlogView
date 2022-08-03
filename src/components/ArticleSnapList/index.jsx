@@ -1,5 +1,6 @@
 import React from 'react';
 import { Divider, Tag, Spin } from 'antd';
+import { withRouter } from 'react-router-dom'
 import { FieldTimeOutlined, TagsOutlined, FolderOutlined } from '@ant-design/icons';
 import styles from './index.module.less';
 
@@ -11,7 +12,7 @@ const ArticleSnapList = (props) => {
                 {
                     articleData.map(item => (
                         <div className={styles.articleListItem} key={item.id}>
-                            <span className={styles.title}>{item.title}</span>
+                            <span className={styles.title} onClick={e => props.history.push(`/article?aid=${item.id}`)}>{item.title}</span>
                             <div className={styles.descshow}>
                                 <div className={styles.descshowitem}>
                                     <FieldTimeOutlined className={styles.itemicon} />
@@ -48,4 +49,4 @@ const ArticleSnapList = (props) => {
     )
 }
 
-export default ArticleSnapList;
+export default withRouter(ArticleSnapList);

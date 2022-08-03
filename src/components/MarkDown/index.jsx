@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import { useState } from 'react';
-import 'highlight.js/styles/atom-one-light.css';
+import 'highlight.js/styles/base16/dracula.css';
 import styles from './index.module.less';
 import { Input } from 'antd'
 
@@ -13,8 +13,8 @@ const MarkDown = (props) => {
 
     const [htmldata, setHtmlData] = useState('')
     hljs.configure({
-        // classPrefix: 'hljs-',
-        languages: ['CSS', 'HTML', 'JavaScript', 'TypeScript', 'Markdown']
+        classPrefix: 'hljs-',
+        // languages: ['CSS', 'SCSS', 'HTML', 'JavaScript', 'TypeScript', 'Markdown']
     });
 
     marked.setOptions({
@@ -39,7 +39,9 @@ const MarkDown = (props) => {
 
 
 
-            <div className={styles.showarea} dangerouslySetInnerHTML={{ __html: htmldata }}></div>
+            <div className={styles.showarea} dangerouslySetInnerHTML={{
+                __html: marked(htmldata || '').replace(/<pre>/g, "<pre class='hljs'>")
+            }}></div>
         </div>
     )
 }

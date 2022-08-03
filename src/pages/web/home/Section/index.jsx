@@ -4,6 +4,7 @@ import React from 'react';
 // import Card from '@/components/Card';
 // import Card from '@/components/Card';
 import { List, Space, Divider, Tag } from 'antd';
+import { withRouter } from 'react-router-dom';
 import MyPagination from '@/components/MyPagination';
 import url from '@/utils/url';
 import useFetchList from '@/hooks/useFetchList';
@@ -87,7 +88,7 @@ const Section = (props) => {
 
                 <List.Item.Meta
                     // avatar={<Avatar src={item.avatar} />}
-                    title={<span className={styles.itemtitle}>{item.title}</span>}
+                    title={<span className={styles.itemtitle} onClick={e => props.history.push(`/article?aid=${item.id}`)}>{item.title}</span>}
                     description={renderDesc(item.createtime, item.category, item.tags)}
                 />
                 <p className={styles.content}>
@@ -131,4 +132,4 @@ const Section = (props) => {
     )
 }
 
-export default Section;
+export default withRouter(Section);

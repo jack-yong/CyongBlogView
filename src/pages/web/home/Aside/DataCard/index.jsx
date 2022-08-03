@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import Card from '@/components/Card';
 import axios from '@/utils/axios';
 import url from '@/utils/url';
 import { useHistory } from 'react-router-dom';
-import { Spin } from 'antd';
 import styles from './index.module.less';
 
 
@@ -50,4 +50,4 @@ const DataCard = (props) => {
     )
 }
 
-export default DataCard
+export default withRouter(DataCard)

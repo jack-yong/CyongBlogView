@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2021-11-29 19:42:21
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-21 21:04:32
+ * @LastEditTime: 2022-08-02 19:06:38
  * @FilePath: \view\src\routes\web.js
  * @Description: 现在正在使用
  */
@@ -32,16 +32,12 @@ const webRoutes = {
             component: Search,
         },
         {
-            path: 'article/:id',
+            path: 'article',
             component: Article,
         },
         {
             path: 'category',
             component: Category,
-        },
-        {
-            path: 'category/:key',
-            component: '',
         },
         {
             path: 'tags',

@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-15 09:10:55
  * @LastEditors: cyong
- * @LastEditTime: 2022-08-02 13:51:35
+ * @LastEditTime: 2022-08-02 17:32:57
  * @FilePath: \view\src\utils\url.js
  * @Description: 存放向后端请求地址的url
  */
@@ -24,6 +24,7 @@ const url = {
     articleadd: '/article/add',
     articlesearch: '/article/search',
     articlepostshow: '/article/postshow',
+    articledetial: '/article/detail',
     //展示页面的相关接口
     homepage: '/homepage/showdata',
     articltype: '/homepage/articletype',

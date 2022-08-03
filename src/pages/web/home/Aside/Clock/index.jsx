@@ -18,7 +18,7 @@ const MyClock = (props) => {
     return (
         <Card className={styles.card}>
 
-            <h3 className={styles.title}>当前时间:</h3>
+            <h3 className={styles.title}>Current Time:</h3>
             <Clock value={value} className={styles.clock} />
 
         </Card>
