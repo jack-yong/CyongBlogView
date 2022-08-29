@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-02-27 21:46:08
  * @LastEditors: cyong
- * @LastEditTime: 2022-07-21 18:50:49
+ * @LastEditTime: 2022-08-20 14:33:00
  * @FilePath: \view\src\utils\index.js
  * @Description: 常用的一些工具函数
  */
@@ -92,5 +92,5 @@ export function getMenuOpenKeys(menu) {
             })
         }
     })
-    return list
+    return list;
 };

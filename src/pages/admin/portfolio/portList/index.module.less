@@ -1,0 +1,55 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: space-around;
+
+
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 10px;
+        margin: 10px 20px;
+        height: 240px;
+        width: 240px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px rgba(#000, 0.2);
+        transition: all 0.3s ease-in-out;
+
+        .title {
+            color: rgba(#1890ff, 0.7);
+            font-size: 18px;
+            top: 5px;
+
+        }
+
+        .desc {
+            word-wrap: break-word;
+            font-size: 16px;
+            color: rgba(#000, 0.4);
+        }
+
+        .modify {
+            color: rgba(#000, 0.6);
+            position: absolute;
+            font-size: 20px;
+            bottom: 15px;
+            right: 15px;
+            transition: .3s linear;
+        }
+
+        .modify:hover {
+            color: rgba(#1890ff, 0.6);
+            cursor: pointer;
+        }
+
+    }
+
+    .card:hover {
+        box-shadow: 1px 1px 15px rgba(#000, 0.4);
+
+    }
+
+}

@@ -2,7 +2,7 @@
  * @Author: cyong
  * @Date: 2022-03-15 09:10:55
  * @LastEditors: cyong
- * @LastEditTime: 2022-08-02 17:32:57
+ * @LastEditTime: 2022-08-29 10:06:31
  * @FilePath: \view\src\utils\url.js
  * @Description: 存放向后端请求地址的url
  */
@@ -41,7 +41,10 @@ const url = {
     devlogadd: '/devlog/add',
     devlogall: '/devlog/all',
     //主页相关接口
-    ACTData: '/homepage/ACTdata'
+    ACTData: '/homepage/ACTdata',
+    //作品集相关的接口
+    portfolioall: '/portfolio/all',
+    portfolioadd: '/portfolio/add',
 
 
 }
