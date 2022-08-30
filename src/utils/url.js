@@ -36,6 +36,7 @@ const url = {
     //友链相关的接口
     linksearch: '/link/search',
     linkadd: '/link/add',
+    linkall: '/link/all',
     //日志相关的接口
     devlogsearch: '/devlog/search',
     devlogadd: '/devlog/add',

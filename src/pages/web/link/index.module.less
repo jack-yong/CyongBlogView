@@ -1,0 +1,121 @@
+.link {
+    height: 100vh;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    overflow-wrap: break-word;
+
+    .allKinds {
+
+        display: flex;
+        flex-direction: column;
+
+        .linkList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .linkcontent {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .linkitem {
+            align-items: center;
+            border-radius: 10px;
+            display: flex;
+            height: 90px;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            margin: 10px 0;
+            user-select: none;
+            width: 23.6%;
+            box-shadow: 1px 1px 3px rgba(#000, 0.2);
+            transition: .3s linear;
+
+            .linkto {
+                display: flex;
+                height: 100%;
+                width: 100%;
+
+                .left {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    border-radius: 14px;
+                    height: 70px;
+                    width: 70px;
+                }
+
+                .right {
+                    box-sizing: border-box calc(100% - 70px);
+                    display: inline-block;
+                    padding-left: 20px;
+                    width: 150px;
+
+
+                    .title {
+
+                        font-weight: 700;
+                        height: 28px;
+                        overflow: hidden;
+                        padding: 0 10px;
+                        text-align: center;
+                        display: block;
+                        color: rgba(#1890ff, 0.6);
+                    }
+
+                    .desc {
+                        display: block;
+                        word-wrap: break-word;
+                        height: 22px;
+                        line-height: 22px;
+                        margin: auto;
+                        color: rgba(#000, 0.6);
+
+                    }
+                }
+            }
+        }
+
+        .linkitem:hover {
+            box-shadow: 1px 1px 10px rgba(#1890ff, 0.4);
+        }
+
+        .linktitle {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .linktitle::before {
+            display: block;
+            content: '';
+            width: 6px;
+            height: 20px;
+            background: #2385E8;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+
+    }
+
+    a,
+    a:link {
+        text-decoration: none;
+    }
+
+    .avatar {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
