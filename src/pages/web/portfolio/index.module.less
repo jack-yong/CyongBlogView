@@ -1,0 +1,52 @@
+.portfolio {
+    height: 100vh;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    overflow-wrap: break-word;
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: space-around;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 15px;
+            margin: 10px 20px;
+            height: 240px;
+            width: 240px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px rgba(#000, 0.2);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+
+            .title {
+                color: rgba(#1890ff, 0.7);
+                font-size: 18px;
+                top: 5px;
+            }
+
+            .desc {
+                word-wrap: break-word;
+                font-size: 16px;
+                color: rgba(#000, 0.4);
+            }
+
+
+        }
+
+        .card:hover {
+            box-shadow: 1px 1px 15px rgba(#000, 0.4);
+
+        }
+    }
+
+    a,
+    a:link {
+        text-decoration: none;
+    }
+}
