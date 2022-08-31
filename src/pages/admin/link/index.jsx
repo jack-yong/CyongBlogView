@@ -6,10 +6,14 @@ import url from '@/utils/url';
 import SearchBar from '@/components/SearchBar';
 import useAntdTable from '@/hooks/useAntdTable';
 import Href from '@/components/Href';
+import ModifyDrawer from '@/components/ModifyDrawer';
+import { drawerStyle, drawerItemStyle } from '@/config';
 import styles from './index.module.less';
 const Link = (props) => {
     const [visible, setVisible] = useState(false);
     const [queryParams, setQueryParams] = useState({});
+    const [drawerVisiable, setDrawerVisiable] = useState(false);
+    const [drawerData, setDrawerData] = useState();
 
     const { tableProps, updateList, onSearch } = useAntdTable({
         requestUrl: url.linksearch,
@@ -21,8 +25,8 @@ const Link = (props) => {
         {
             name: 'linkImage',
             type: 'input',
-            label: '链接封面地址',
-            placeholder: '请输入链接地址',
+            label: '链接图片',
+            placeholder: '请输入链接图片地址',
         },
         {
             name: 'linktype',
@@ -170,7 +174,7 @@ const Link = (props) => {
             key: 'operation',
             fixed: 'right',
             width: 150,
-            render: () => <><Button type="primary" size="small" className={styles.button}>修改</Button><Button type="primary" size="small" danger className={styles.button}>删除</Button> </>,
+            render: (text, record) => <><Button type="primary" size="small" className={styles.button} onClick={() => modifyButton(record)}>修改</Button><Button type="primary" size="small" danger className={styles.button}>删除</Button> </>,
         },
     ];
 
@@ -203,8 +207,33 @@ const Link = (props) => {
             <SearchBar title={"增加新链接"} searchService={linkSearch} modalConfData={modalconfig} addService={linkAdd} visible={visible} setVisible={setVisible} />
             <Divider />
             <RegularTable tableProps={tableProps} columns={mycolumns} isopt={true} align={true} />
+            <ModifyDrawer
+                title={'友链修改'}
+                buttonName={'修改'}
+                visible={drawerVisiable}
+                onClose={onCloseDrawer}
+                drawerConfData={modalconfig}
+                drawerData={drawerData}
+                drawerStyle={drawerStyle}
+                drawerItemStyle={drawerItemStyle}
+                setDrawerVisible={setDrawerVisiable}
+                ModifyService={() => {
+                    console.log('modify drawer');
+                }}
+            />
         </>
     )
+
+    //关闭当前抽屉
+    function onCloseDrawer() {
+        setDrawerData(undefined); //关闭抽屉清空数据
+        setDrawerVisiable(false);
+    }
+
+    function modifyButton(record) {
+        setDrawerData(record);
+        setDrawerVisiable(true);
+    }
 }
 
 export default Link;
