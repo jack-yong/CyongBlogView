@@ -5,7 +5,7 @@ import url from '@/utils/url';
 import PortList from './portList';
 import DynamicForm from '@/components/DynamicForm';
 import ModifyDrawer from '@/components/ModifyDrawer';
-import { drawerStyle, drawerItemStyle } from '@/config'
+import { drawerStyle, drawerItemStyle } from '@/config';
 
 const Portfolio = () => {
 
@@ -84,7 +84,7 @@ const Portfolio = () => {
             <PortList portData={portData} modifyService={modifyButton} />
 
             <ModifyDrawer
-                title={'开发日志修改'}
+                title={'作品集修改'}
                 buttonName={'修改'}
                 visible={modifyStatus}
                 onClose={onCloseDrawer}

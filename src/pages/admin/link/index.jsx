@@ -23,7 +23,7 @@ const Link = (props) => {
 
     const modalconfig = [
         {
-            name: 'linkImage',
+            name: 'linkimg',
             type: 'input',
             label: '链接图片',
             placeholder: '请输入链接图片地址',

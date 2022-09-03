@@ -72,6 +72,6 @@ export const drawerStyle = {
     },
 };
 export const drawerItemStyle = {
-    wrapperCol: { span: 16 },
+    wrapperCol: { span: 20 },
 };
 

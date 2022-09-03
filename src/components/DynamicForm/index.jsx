@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Form, Input, Select, Button, message, Tag, DatePicker } from 'antd';
 import moment from 'moment';
+import ColorPicker from '../ColorPicker';
 import MyUpload from '../Upload';
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -150,6 +151,12 @@ const DynamicForm = (props) => {
                         <TextArea rows={5} />
                     </Form.Item>
                     formItemList.push(textAreaItem);
+                    break;
+                case 'colorInput':
+                    const colorInput = <Form.Item {...formItemStyle} key={name} name={name} label={label} rules={rules}>
+                        <ColorPicker />
+                    </Form.Item>
+                    formItemList.push(colorInput);
                     break;
                 default:
                     break;
